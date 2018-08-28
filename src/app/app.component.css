@@ -1,0 +1,31 @@
+.brand{
+  margin-right: 15px;
+  margin-top: -6px;
+  margin-bottom: -6px;
+}
+
+.grey_blue-backgroung {
+  background-color: #b8d4e4!important;
+}
+
+.margin_top_bottom{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+.footer {
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
