@@ -5,7 +5,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 
 const appRoutes: Routes = [
   //{path: '', component: InicioComponent},
-  {path: 'inicio', component: InicioComponent},
+  //{path: 'inicio', component: InicioComponent},
   {path: 'inicio/:language', component: InicioComponent}
 ];
 
