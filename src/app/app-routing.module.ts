@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { InicioComponent } from './inicio/inicio.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 const appRoutes: Routes = [
   //{path: '', component: InicioComponent},
