@@ -17,16 +17,13 @@ export class AppComponent implements OnInit{
 
   constructor(private _router: Router, private _contentService: ContentService, private _route: ActivatedRoute) {
     this.router = _router;
+    this.content = require('./app.json');
   }
 
   ngOnInit(){
 
-    //this.loadContent('general');
-
-    if (this.content != null){
-      this.paintContent();
-    }
-
+    this.loadContent('general');
+    
   }
 
   loadContent(contentName){
@@ -44,14 +41,9 @@ export class AppComponent implements OnInit{
 
       error =>{
 
-        var errorMessage = <any>error;
+        console.log(error._body);
+        this._router.navigate(['/server-error']);
 
-        if (errorMessage != null) {
-
-          var body = JSON.parse(error._body);
-          console.log(error);
-
-        }
       }
 
     );
@@ -59,7 +51,8 @@ export class AppComponent implements OnInit{
   }
 
   paintContent(){
-
+    console.log("kj");
+    console.log(this.content);
   }
 
 }
