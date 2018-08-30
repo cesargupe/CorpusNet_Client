@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
 
-    this.loadContent('general');
+    //this.loadContent('general');
 
     if (this.content != null){
       this.paintContent();
