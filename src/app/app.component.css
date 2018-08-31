@@ -13,6 +13,10 @@
   margin-bottom: 40px;
 }
 
+.pointer-cursor{
+  cursor: pointer;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 body {

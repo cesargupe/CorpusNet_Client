@@ -24,4 +24,14 @@ export class ContentService {
 
   }
 
+  loadLanguage(){
+
+    let language = 'es';
+    if (localStorage.getItem('language')) {
+        language = localStorage.getItem('language')
+    }
+
+    return language;
+  }
+
 }

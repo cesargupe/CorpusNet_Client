@@ -7,9 +7,10 @@ import { Error404Component } from './components/error404/error404.component';
 
 const appRoutes: Routes = [
   {path: '', component: InicioComponent},
+
   {path: 'inicio', component: InicioComponent},
   {path: 'inicio/:language', component: InicioComponent},
-  {path: 'server-error', component: Error500Component},
+
   {path: '**', component: Error404Component},
 ];
 
