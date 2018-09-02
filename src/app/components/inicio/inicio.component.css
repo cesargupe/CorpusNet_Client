@@ -13,6 +13,12 @@
   max-width: 450px;
 }
 
+.margin-left_right_50{
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .border_radius_blue{
     border-radius: 15px;
     border: 1px solid rgba(97, 153, 185, 0.24);

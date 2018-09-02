@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { ContentService } from '../../services/content.service';
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -8,19 +10,35 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InicioComponent implements OnInit {
 
-  title = 'Bienvenido';
+  public content: Object;
+  public language: String;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private _contentService: ContentService) {
+    this.language = _contentService.loadLanguage();
+  }
 
   ngOnInit() {
+    this.loadContent('inicio');
+  }
 
-    this.route.params.subscribe(params => {
+  loadContent(contentName){
 
-      this.title = params['language'];
+    this._contentService.getContent(contentName, this.language).subscribe(
 
-      if (!this.title) this.title = 'Bienvenidos';
+      response => {
 
-    });
+        this.content = response.content;
+        console.log(this.content);
+
+      },
+
+      error =>{
+
+        console.log(error._body);
+
+      }
+
+    );
 
   }
 

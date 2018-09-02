@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   public route: String;
   public language: String;
 
-  constructor(private _router: Router, private _contentService: ContentService,) {
+  constructor(private _router: Router, private _contentService: ContentService) {
     this.language = _contentService.loadLanguage();
   }
 
@@ -41,7 +41,6 @@ export class AppComponent implements OnInit{
       response => {
 
         this.content = response.content;
-        console.log(this.content);
 
       },
 
