@@ -14,10 +14,11 @@ export class AppComponent implements OnInit{
 
   public content: Object;
   public error: Boolean;
-  public route: String;
+  public router: Router;
   public language: String;
 
   constructor(private _router: Router, private _contentService: ContentService) {
+    this.router = _router;
     this.language = _contentService.loadLanguage();
   }
 

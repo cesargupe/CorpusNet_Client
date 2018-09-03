@@ -13,14 +13,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/inicio']" [routerLinkActive]="['actived']">{{content.data.top_menu[0].text}}</a>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/inicio']" [routerLinkActive]="['active']">{{content.data.top_menu[0].text}}</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{content.data.top_menu[1].text}}</a>
+          <a class="nav-link dropdown-toggle" [class.active]="router.url == '/corpus-comparables' || router.url == '/corpus-paralelos'" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{content.data.top_menu[1].text}}</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" [routerLink]="['/corpus-comparable']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[0].text}}</a>
-            <a class="dropdown-item" [routerLink]="['/corpus-paralelo']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[1].text}}</a>
+            <a class="dropdown-item" [routerLink]="['/corpus-comparables']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[0].text}}</a>
+            <a class="dropdown-item" [routerLink]="['/corpus-paralelos']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[1].text}}</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -42,7 +42,7 @@
       </ul>
 
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{content.data.top_menu[6].text}}
           </a>

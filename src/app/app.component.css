@@ -13,6 +13,10 @@
   margin-bottom: 100px;
 }
 
+.active{
+  font-weight: 500;
+}
+
 .pointer-cursor{
   cursor: pointer;
 }

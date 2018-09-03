@@ -2,16 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { InicioComponent } from './components/inicio/inicio.component';
-import { Error500Component } from './components/error500/error500.component';
+import { CorpusComparablesComponent } from './components/corpus-comparables/corpus-comparables.component';
 import { Error404Component } from './components/error404/error404.component';
 
 const appRoutes: Routes = [
-  //{path: '', component: InicioComponent},
-
+  {path: '', component: InicioComponent},
   {path: 'inicio', component: InicioComponent},
-  {path: 'inicio/:language', component: InicioComponent},
-
-  //{path: '**', component: Error404Component},
+  {path: 'corpus-comparables', component: CorpusComparablesComponent},
+  {path: '**', component: Error404Component},
 ];
 
 @NgModule({

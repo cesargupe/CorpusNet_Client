@@ -1,0 +1,30 @@
+.margin-left_right_50{
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.general-title{
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-size: 2.1rem;
+  color: #343a40;
+}
+
+.card-text{
+  height: 250px;
+  overflow: auto;
+}
+
+.margin_left-15{
+  margin-left: 15px;
+}
+
+.card-grey{
+  background-color: rgba(0,0,0,.015);
+  margin-top: 2rem;
+}
+
+.card_header-blue_grey{
+  background-color: rgba(184, 212, 228, 0.41);
+}

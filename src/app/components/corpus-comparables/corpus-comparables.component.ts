@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ContentService } from '../../services/content.service';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  selector: 'app-corpus-comparables',
+  templateUrl: './corpus-comparables.component.html',
+  styleUrls: ['./corpus-comparables.component.css']
 })
-export class InicioComponent implements OnInit {
+export class CorpusComparablesComponent implements OnInit {
 
   public content: Object;
   public language: String;
@@ -17,7 +17,7 @@ export class InicioComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadContent('inicio');
+    this.loadContent('corpus-comparables');
   }
 
   loadContent(contentName){
@@ -27,6 +27,7 @@ export class InicioComponent implements OnInit {
       response => {
 
         this.content = response.content;
+        console.log(this.content);
 
       },
 

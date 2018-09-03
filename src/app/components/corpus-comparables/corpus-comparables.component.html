@@ -1,0 +1,23 @@
+<div *ngIf="content" class="margin-left_right_50">
+
+  <h1 class="text-center general-title">{{content.data.title}}</h1>
+
+  <div class="row">
+
+    <div *ngFor="let corpus of content.data.corpus" class="col-lg-6">
+      <div class="card card-grey">
+        <div class="card-header card_header-blue_grey">
+          {{corpus.autor}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{corpus.name}}</h5>
+          <p class="card-text text-justify">{{corpus.description}}</p>
+          <a href={{corpus.buttons[0].link}} class="btn btn-primary float-right margin_left-15">{{corpus.buttons[0].name}}</a>
+          <a href={{corpus.buttons[1].link}} class="btn btn-outline-primary float-right">{{corpus.buttons[1].name}}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
