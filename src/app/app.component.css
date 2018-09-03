@@ -5,7 +5,8 @@
 }
 
 .grey_blue-backgroung {
-  background-color: #b8d4e4!important;
+  --background-color: #b8d4e4!important;
+  background-color: #a9c5d6bf!important
 }
 
 .margin_top_bottom{
