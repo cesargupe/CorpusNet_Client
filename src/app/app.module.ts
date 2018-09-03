@@ -8,6 +8,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { Error500Component } from './components/error500/error500.component';
 import { Error404Component } from './components/error404/error404.component';
 import { CorpusComparablesComponent } from './components/corpus-comparables/corpus-comparables.component';
+import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-paralelos.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CorpusComparablesComponent } from './components/corpus-comparables/corp
     InicioComponent,
     Error500Component,
     Error404Component,
-    CorpusComparablesComponent
+    CorpusComparablesComponent,
+    CorpusParalelosComponent
   ],
   imports: [
     BrowserModule,

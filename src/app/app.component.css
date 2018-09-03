@@ -18,6 +18,12 @@
   font-weight: 500;
 }
 
+.dropdown-item.active, .dropdown-item:active{
+  color: #fff;
+  text-decoration: none;
+  background-color: #007bff;
+}
+
 .pointer-cursor{
   cursor: pointer;
 }

@@ -4,9 +4,9 @@
 }
 
 .title-blue_grey{
-  --color: #629cbd!important;
-  color :#6d8a9c!important;
-  --font-family: "Roboto", sans-serif;
+  --color :#6d8a9c!important;
+  font-weight: 400;
+  color: #6a8ece;
 }
 
 .big-logo{
