@@ -47,8 +47,7 @@
             {{content.data.top_menu[6].text}}
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item pointer-cursor" (click)="changeLanguage('es')">{{content.data.languages[0]}}</a>
-            <a class="dropdown-item pointer-cursor" (click)="changeLanguage('en')">{{content.data.languages[1]}}</a>
+            <a *ngFor="let language of content.data.languages" class="dropdown-item pointer-cursor" (click)="changeLanguage(language.code)">{{language.name}}</a>
           </div>
         </li>
       </ul>

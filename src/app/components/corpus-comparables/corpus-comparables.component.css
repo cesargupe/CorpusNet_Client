@@ -21,10 +21,10 @@
 }
 
 .card-grey{
-  background-color: rgba(0,0,0,.015);
+  background-color: rgba(0,0,0,.01);
   margin-top: 2rem;
 }
 
 .card_header-blue_grey{
-  background-color: rgba(184, 212, 228, 0.41);
+  background-color: rgba(191, 212, 225, 0.43);
 }
