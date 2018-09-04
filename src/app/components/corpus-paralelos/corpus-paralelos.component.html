@@ -1,26 +1,29 @@
-<div *ngIf="!content" class="margin-left_right_50">
+<div *ngIf="content" class="margin-left_right_50">
 
   <!--<h1 class="text-center general-title">Corpus paralelos</h1>-->
 
-  <div class="card text-center">
+  <div id="instructions" class="card text-center">
+
     <div class="card-body">
+      <button (click)="closePanel()" type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
       <h4 class="card-title">Instrucciones de uso</h4>
       <p class="card-text text-justify">Lorem ipsum dolor sit amet consectetur adipiscing elit orci nec curae feugiat, parturient fames conubia egestas mus sapien convallis dignissim netus nunc. Luctus erat est convallis platea vivamus vehicula id, risus imperdiet consequat ridiculus massa varius augue, fames velit cubilia habitasse eu tortor. Et ultricies imperdiet interdum proin porta aptent volutpat neque, semper fringilla libero penatibus nostra id dictum inceptos, magnis pellentesque phasellus quisque lacinia curabitur platea.<br><br>
 
-Magnis mattis taciti elementum rhoncus habitasse accumsan lacinia iaculis vel dignissim sagittis metus ultrices, euismod conubia tellus tempor luctus imperdiet ac justo aliquet risus commodo praesent curabitur, gravida fusce per sem morbi ullamcorper arcu turpis lectus pulvinar consequat torquent. Suscipit diam euismod sollicitudin placerat ornare, ultrices porta enim fringilla tellus, mollis magnis est condimentum. Fringilla cubilia elementum tellus condimentum urna imperdiet magnis varius, blandit praesent massa risus neque dapibus volutpat, sociosqu mus montes nullam nostra id phasellus.</p>
+        Magnis mattis taciti elementum rhoncus habitasse accumsan lacinia iaculis vel dignissim sagittis metus ultrices, euismod conubia tellus tempor luctus imperdiet ac justo aliquet risus commodo praesent curabitur, gravida fusce per sem morbi ullamcorper arcu turpis lectus pulvinar consequat torquent. Suscipit diam euismod sollicitudin placerat ornare, ultrices porta enim fringilla tellus, mollis magnis est condimentum. Fringilla cubilia elementum tellus condimentum urna imperdiet magnis varius, blandit praesent massa risus neque dapibus volutpat, sociosqu mus montes nullam nostra id phasellus.</p>
+      </div>
     </div>
+
+    <br>
+
+    <div *ngFor="let corpus of content.data.corpus" class="card corpus">
+      <div class="card-body">
+        <p class="card-title align-middle">{{corpus.name}}</p>
+        <span class="card-text"><small class="text-muted">{{corpus.autor}}</small></span>
+        <a class="btn btn-primary float-right margin_left-15" href={{corpus.buttons[0].link}}>{{corpus.buttons[0].name}}</a>
+        <a class="btn btn-outline-primary float-right" href={{corpus.buttons[1].link}}>{{corpus.buttons[1].name}}</a>
+      </div>
+    </div>
+
   </div>
-
-  <br><br><div class="container">
-
-    <div class="card">
-  <div class="card-body">
-    <span class="card-title align-middle">ACTRES</span>
-    <a class="btn btn-primary float-right margin_left-15" href="">Acceder</a>
-    <a class="btn btn-outline-primary float-right" href="">Ficha técnica</a>
-  </div>
-</div>
-
-  </div>
-
-</div>

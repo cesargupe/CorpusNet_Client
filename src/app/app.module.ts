@@ -9,6 +9,8 @@ import { Error500Component } from './components/error500/error500.component';
 import { Error404Component } from './components/error404/error404.component';
 import { CorpusComparablesComponent } from './components/corpus-comparables/corpus-comparables.component';
 import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-paralelos.component';
+import { HerramientasTagsetsComponent } from './components/herramientas-tagsets/herramientas-tagsets.component';
+import { HerramientasTecnicasComponent } from './components/herramientas-tecnicas/herramientas-tecnicas.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-p
     Error500Component,
     Error404Component,
     CorpusComparablesComponent,
-    CorpusParalelosComponent
+    CorpusParalelosComponent,
+    HerramientasTagsetsComponent,
+    HerramientasTecnicasComponent
   ],
   imports: [
     BrowserModule,
