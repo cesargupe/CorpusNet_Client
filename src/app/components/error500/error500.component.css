@@ -18,6 +18,7 @@ body {
     right: 0;
     left: 0;
     position: fixed;
+    z-index: 100;
 }
 .page-404 .outer {
     position: absolute;
