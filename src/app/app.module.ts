@@ -11,6 +11,8 @@ import { CorpusComparablesComponent } from './components/corpus-comparables/corp
 import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-paralelos.component';
 import { HerramientasTagsetsComponent } from './components/herramientas-tagsets/herramientas-tagsets.component';
 import { HerramientasTecnicasComponent } from './components/herramientas-tecnicas/herramientas-tecnicas.component';
+import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
+import { GruposComponent } from './components/grupos/grupos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HerramientasTecnicasComponent } from './components/herramientas-tecnica
     CorpusComparablesComponent,
     CorpusParalelosComponent,
     HerramientasTagsetsComponent,
-    HerramientasTecnicasComponent
+    HerramientasTecnicasComponent,
+    AplicacionesComponent,
+    GruposComponent
   ],
   imports: [
     BrowserModule,

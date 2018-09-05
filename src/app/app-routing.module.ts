@@ -6,6 +6,8 @@ import { CorpusComparablesComponent } from './components/corpus-comparables/corp
 import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-paralelos.component';
 import { HerramientasTagsetsComponent } from './components/herramientas-tagsets/herramientas-tagsets.component';
 import { HerramientasTecnicasComponent } from './components/herramientas-tecnicas/herramientas-tecnicas.component';
+import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
+import { GruposComponent } from './components/grupos/grupos.component';
 import { Error404Component } from './components/error404/error404.component';
 
 const appRoutes: Routes = [
@@ -15,7 +17,9 @@ const appRoutes: Routes = [
   {path: 'corpus-paralelos', component: CorpusParalelosComponent},
   {path: 'herramientas-tagsets', component: HerramientasTagsetsComponent},
   {path: 'herramientas-tecnicas', component: HerramientasTecnicasComponent},
-  {path: '**', component: Error404Component},
+  {path: 'aplicaciones', component: AplicacionesComponent},
+  {path: 'grupos', component: GruposComponent},
+  {path: '**', component: Error404Component}
 ];
 
 @NgModule({
