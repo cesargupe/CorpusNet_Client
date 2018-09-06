@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -13,6 +15,7 @@ import { HerramientasTagsetsComponent } from './components/herramientas-tagsets/
 import { HerramientasTecnicasComponent } from './components/herramientas-tecnicas/herramientas-tecnicas.component';
 import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
 import { GruposComponent } from './components/grupos/grupos.component';
+import { NoticiasComponent } from './components/noticias/noticias.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,14 @@ import { GruposComponent } from './components/grupos/grupos.component';
     HerramientasTagsetsComponent,
     HerramientasTecnicasComponent,
     AplicacionesComponent,
-    GruposComponent
+    GruposComponent,
+    NoticiasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    NgxTwitterTimelineModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

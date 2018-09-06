@@ -1,3 +1,24 @@
+/* Button bootstrap */
+.btn-primary{
+  background-color: #34759cbf;
+  border-color: #34759cbf;
+}
+
+.btn-primary:hover, .btn-primary:active:hover{
+  background-color: #34759c;
+}
+
+.btn-outline-primary{
+  color: #4584ab;
+  border-color: #4584ab;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:active:hover{
+  background-color: #34759cbf;
+  color: white;
+}
+/* Button bootstrap */
+
 .margin-left_right_50{
   max-width: 1400px;
   margin-right: auto;
@@ -16,12 +37,16 @@
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .card-body{
-  max-height: 250px;
+  max-height: 450px;
   overflow: auto;
+}
+
+.margin_left_negative-10{
+  margin-left: -10px;
 }
 
 .card-title{
@@ -29,10 +54,13 @@
   color: #6a8bc7;
 }
 
+.subtititle-grey{
+    color: #6c757da3!important;
+}
+
 .img-team{
-  width: 100px;
-  height: auto;
-  margin-top: 10px;
+  height: 90px;
+  width: auto;
 }
 
 .card-footer{

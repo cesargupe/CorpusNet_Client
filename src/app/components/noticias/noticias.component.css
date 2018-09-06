@@ -32,43 +32,21 @@
   color: #343a40;
 }
 
-.corpus{
-  margin-bottom: 20px;
-}
-
 .card{
   background-color: rgba(0,0,0,.01);
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 100%;
 }
 
 .card-title{
-  --color: #5b8fec;
+  margin-top: 10px;
   color: #6a8bc7;
 }
 
-h4.card-title{
-  margin-bottom: 20px;
-  font-weight: 400;
+.subtititle-grey{
+    color: #6c757da3!important;
 }
 
-p.card-title{
-  margin-left: 30px;
-  margin-bottom: 5px;
-  font-size: 1.3rem;
-}
-
-small.text-muted{
-  margin-left: 30px;
-  font-size: 20px;
-}
-
-.close{
-  font-size: 1.8rem;
-  line-height: 0.8;
-}
-
-.margin_left-15{
-  margin-left: 15px;
+.twitter{
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 }

@@ -8,6 +8,7 @@ import { HerramientasTagsetsComponent } from './components/herramientas-tagsets/
 import { HerramientasTecnicasComponent } from './components/herramientas-tecnicas/herramientas-tecnicas.component';
 import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
 import { GruposComponent } from './components/grupos/grupos.component';
+import { NoticiasComponent } from './components/noticias/noticias.component';
 import { Error404Component } from './components/error404/error404.component';
 
 const appRoutes: Routes = [
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   {path: 'herramientas-tecnicas', component: HerramientasTecnicasComponent},
   {path: 'aplicaciones', component: AplicacionesComponent},
   {path: 'grupos', component: GruposComponent},
+  {path: 'noticias', component: NoticiasComponent},
   {path: '**', component: Error404Component}
 ];
 
