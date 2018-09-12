@@ -1,10 +1,10 @@
-<div *ngIf="!content" class="margin-left_right_50">
+<div *ngIf="content" class="margin-left_right_50">
 
-  <!--<h1 class="text-center general-title">Corpus paralelos</h1>-->
+  <!--<h1 class="text-center general-title">Tagsets</h1>-->
 
   <br>
 
-  <div class="card">
+  <div *ngFor="let tool of content.data.tools" class="card">
 
     <div class="card-body">
 
@@ -15,8 +15,9 @@
         </div>
 
         <div class="col-12 col-md-10">
-          <h4 class="card-title">Etiquetador semántico</h4>
-          <p class="card-text text-justify">Lorem ipsum dolor sit amet consectetur adipiscing elit orci nec curae feugiat, parturient fames conubia egestas mus sapien convallis dignissim netus nunc. Luctus erat est convallis platea vivamus vehicula id, risus imperdiet consequat ridiculus massa varius augue, fames velit cubilia habitasse eu tortor.</p>
+          <h4 class="card-title">{{tool.name}}</h4>
+          <h5 class="card-subtitle mb-2 text-grey">{{tool.author}}</h5>
+          <p class="card-text text-justify" [innerHTML]="tool.description"></p>
         </div>
 
       </div>
@@ -24,9 +25,8 @@
     </div>
 
     <div class="card-footer">
-      <!--<span class="footer-text">Universidad de León</span>-->
-      <a class="btn btn-primary float-right margin_left-15" href="#">Acceder</a>
-      <a class="btn btn-outline-primary float-right" href="#">Ficha técnica</a>
+      <a class="btn btn-primary float-right margin_left-15" href={{tool.buttons[0].link}}>{{tool.buttons[0].name}}</a>
+      <a class="btn btn-outline-primary float-right" href={{tool.buttons[1].link}}>{{tool.buttons[1].name}}</a>
     </div>
 
   </div>

@@ -1,4 +1,4 @@
-<div *ngIf="!content" class="margin-left_right_50">
+<div *ngIf="content" class="margin-left_right_50">
 
   <!--<h1 class="text-center general-title">Corpus paralelos</h1>-->
 
@@ -8,134 +8,16 @@
 
     <div class="col-8">
       <div class="p-3 box-shadow news text-justify">
-        <h6 class="border-new border-gray pb-2 mb-0">Noticias</h6>
-        <div class="media text-muted pt-3 ">
+        <h6 class="border-new border-gray pb-2 mb-0">{{content.data.title}}</h6>
+
+        <div *ngFor="let new of content.data.news" class="media text-muted pt-3 ">
           <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">ACTRES</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            <u><a class="d-block text-muted font-italic" href="#">www.google.es/</a></u>
+            <strong class="d-block text-gray-dark">{{new.team}}</strong>
+            {{new.text}}
+            <u><a class="d-block text-muted font-italic" href="{{new.link}}">{{new.link}}</a></u>
           </p>
         </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">TRACE</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">COVALT</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3 ">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">ACTRES</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">TRACE</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">COVALT</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3 ">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">ACTRES</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">TRACE</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">COVALT</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3 ">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">ACTRES</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">TRACE</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">COVALT</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3 ">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">ACTRES</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">TRACE</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">COVALT</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3 ">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">ACTRES</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">TRACE</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">COVALT</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3 ">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">ACTRES</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">TRACE</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-new">
-            <strong class="d-block text-gray-dark">COVALT</strong>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
+
       </div>
 
       <nav aria-label="Page navigation example">

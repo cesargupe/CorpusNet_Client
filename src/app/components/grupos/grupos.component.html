@@ -1,10 +1,10 @@
-<div *ngIf="!content" class="margin-left_right_50">
+<div *ngIf="content" class="margin-left_right_50">
 
-  <!--<h1 class="text-center general-title">Corpus paralelos</h1>-->
+  <!--<h1 class="text-center general-title">{{content.data.title}}</h1>-->
 
   <br>
 
-  <div class="card">
+  <div *ngFor="let team of content.data.teams" class="card">
 
     <div class="card-body">
 
@@ -15,54 +15,22 @@
         </div>
 
         <div class="col-md-auto margin_left_negative-10">
-          <h5 class="card-title">ACTRES</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Rosa Rabadán Álvarez</h6>
-          <h6 class="card-subtitle mb-2 text-muted subtititle-grey">Universidad de León</h6>
+          <h5 class="card-title">{{team.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{team.master}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted subtititle-grey">{{team.place}}</h6>
         </div>
 
       </div>
 
       <div class="mt-4">
-        <p class="card-text text-justify">Lorem ipsum dolor sit amet consectetur adipiscing elit erat sagittis quis fusce, eleifend netus magna venenatis natoque tincidunt mus aliquet a primis, mi luctus tristique parturient curae sociosqu litora feugiat gravida diam. Ullamcorper nulla montes erat nullam ornare felis platea parturient iaculis condimentum sociosqu, pulvinar ultrices proin volutpat ut rutrum integer metus libero himenaeos ridiculus, tincidunt pretium nunc cras per natoque interdum id conubia pellentesque.</p>
+        <p class="card-text text-justify" [innerHTML]="team.description"></p>
       </div>
 
     </div>
 
     <div class="card-footer">
       <!--<span class="footer-text">Universidad de León</span>-->
-      <a class="btn btn-outline-primary float-right margin_left-15" href="#">Visitar página web</a>
-    </div>
-
-
-  </div>
-
-  <div class="card">
-
-    <div class="card-body">
-
-      <div class="row justify-content-md-center">
-
-        <div class="col-md-auto">
-          <img src="/assets/img/team2.png" class="img-team" alt="">
-        </div>
-
-        <div class="col-md-auto margin_left_negative-10">
-          <h5 class="card-title">ACTRES</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Rosa Rabadán Álvarez</h6>
-          <h6 class="card-subtitle mb-2 text-muted subtititle-grey">Universidad de León</h6>
-        </div>
-
-      </div>
-
-      <div class="mt-4">
-        <p class="card-text text-justify">Lorem ipsum dolor sit amet consectetur adipiscing elit erat sagittis quis fusce, eleifend netus magna venenatis natoque tincidunt mus aliquet a primis, mi luctus tristique parturient curae sociosqu litora feugiat gravida diam. Ullamcorper nulla montes erat nullam ornare felis platea parturient iaculis condimentum sociosqu, pulvinar ultrices proin volutpat ut rutrum integer metus libero himenaeos ridiculus, tincidunt pretium nunc cras per natoque interdum id conubia pellentesque.</p>
-      </div>
-
-    </div>
-
-    <div class="card-footer">
-      <!--<span class="footer-text">Universidad de León</span>-->
-      <a class="btn btn-outline-primary float-right margin_left-15" href="#">Visitar página web</a>
+      <a class="btn btn-outline-primary float-right margin_left-15" href={{team.buttons[0].link}}>{{team.buttons[0].name}}</a>
     </div>
 
 

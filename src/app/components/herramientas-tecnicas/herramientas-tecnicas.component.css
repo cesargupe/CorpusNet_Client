@@ -63,6 +63,12 @@
   color: #6a8bc7;
 }
 
+.text-grey{
+    color: #6c757db8;
+    font-size: 1.15rem;
+    margin-top: -10px;
+}
+
 .img-tool{
   width: 120px;
   height: auto;

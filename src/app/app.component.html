@@ -26,20 +26,20 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{content.data.top_menu[2].text}}</a>
+          <a class="nav-link dropdown-toggle" [class.active]="router.url == '/herramientas-tagsets' || router.url == '/herramientas-tecnicas'" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{content.data.top_menu[2].text}}</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" [routerLink]="['/herramientas-tagsets']" [routerLinkActive]="['active']">{{content.data.top_menu[2].sublements[0].text}}</a>
             <a class="dropdown-item" [routerLink]="['/herramientas-tecnicas']" [routerLinkActive]="['active']">{{content.data.top_menu[2].sublements[1].text}}</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/aplicaciones']" [routerLinkActive]="['actived']">{{content.data.top_menu[3].text}}</a>
+          <a class="nav-link" [routerLink]="['/aplicaciones']" [routerLinkActive]="['active']">{{content.data.top_menu[3].text}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/grupos']" [routerLinkActive]="['actived']">{{content.data.top_menu[4].text}}</a>
+          <a class="nav-link" [routerLink]="['/grupos']" [routerLinkActive]="['active']">{{content.data.top_menu[4].text}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/noticias']" [routerLinkActive]="['actived']">{{content.data.top_menu[5].text}}</a>
+          <a class="nav-link" [routerLink]="['/noticias']" [routerLinkActive]="['active']">{{content.data.top_menu[5].text}}</a>
         </li>
       </ul>
 
