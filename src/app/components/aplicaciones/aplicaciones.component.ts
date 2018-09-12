@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AplicacionesComponent implements OnInit {
 
+  public content: Object;
+
   constructor() { }
 
   ngOnInit() {

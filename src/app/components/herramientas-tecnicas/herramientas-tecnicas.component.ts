@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HerramientasTecnicasComponent implements OnInit {
 
+  public content: Object;
+
   constructor() { }
 
   ngOnInit() {

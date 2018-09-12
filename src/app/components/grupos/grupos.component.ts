@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GruposComponent implements OnInit {
 
+  public content: Object;
+
   constructor() { }
 
   ngOnInit() {
