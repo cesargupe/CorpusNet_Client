@@ -1,47 +1,21 @@
 <div class="modal fade" id="ficha-tecnica" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-  <div class="modal-content">
+  <div *ngIf="datasheet" class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalCenterTitle">Ficha técnica</h5>
+      <h5 class="modal-title" id="exampleModalCenterTitle">{{datasheet.name}}</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <table class="table table-bordered table-hover text-justify">
+      <table class="table table-bordered table-hover">
         <tbody>
-          <tr>
-            <th scope="row">Corpus name</th>
-            <td>Acronym</td>
+
+          <tr *ngFor="let row of datasheet.data">
+            <th class="card-title" scope="row">{{row.name}}</th>
+            <td class="text-justify">{{row.content}}</td>
           </tr>
-          <tr>
-            <th scope="row">Acronym</th>
-            <td>Jacob</td>
-          </tr>
-          <tr>
-            <th scope="row">Proyect URL</th>
-            <td>Larry the Bird</td>
-          </tr>
-          <tr>
-            <th scope="row">Corpus name</th>
-            <td>Acronym</td>
-          </tr>
-          <tr>
-            <th scope="row">Acronym</th>
-            <td>Jacob</td>
-          </tr>
-          <tr>
-            <th scope="row">Proyect URL</th>
-            <td>Larry the Bird</td>
-          </tr>
-          <tr>
-            <th scope="row">Medium</th>
-            <td>Lorem ipsum dolor sit amet consectetur adipiscing elit consequat vulputate suscipit pulvinar, nullam inceptos euismod sollicitudin elementum varius mollis quam metus magna leo auctor, cum eget himenaeos malesuada vestibulum placerat tortor ultrices penatibus diam. Vehicula nam sociis pulvinar mi mus libero sem tellus, neque cubilia curabitur scelerisque himenaeos senectus erat enim, mattis facilisis dignissim aptent condimentum justo tortor. Mollis parturient enim mus feugiat nostra hac, vitae volutpat himenaeos ornare eget, blandit odio dui molestie nascetur.</td>
-          </tr>
-          <tr>
-            <th scope="row">Content</th>
-            <td>Larry the Bird</td>
-          </tr>
+
         </tbody>
       </table>
     </div>

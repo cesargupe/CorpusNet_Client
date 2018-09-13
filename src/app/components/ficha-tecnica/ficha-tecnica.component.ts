@@ -18,7 +18,10 @@ export class FichaTecnicaComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
 
     if(!changes["element"].isFirstChange()){
+
+      this.datasheet = null;
       this.loadDatasheet();
+
     }
 
   }

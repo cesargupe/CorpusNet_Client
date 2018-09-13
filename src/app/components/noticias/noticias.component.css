@@ -17,6 +17,11 @@
   background-color: #34759cbf;
   color: white;
 }
+
+.page-item.active .page-link{
+  background-color: #34759cbf;
+  color: white;
+}
 /* Button bootstrap */
 
 .margin-left_right_50{
@@ -60,11 +65,21 @@ strong {
     font-size: 85%;
     font-weight: 400;
 }
+
 .pagination{
-  bottom: 0;
-  position: absolute;
-  right: 30px;
-  margin-bottom: 0rem;
+  margin-top: -38px;
+}
+
+.page-item .page-link{
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 0;
+}
+
+.page-item.active .page-link{
+  background-color: #34759c9e;
+  color: white;
 }
 
 .page-item:not(.disabled) > .page-link{

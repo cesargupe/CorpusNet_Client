@@ -12,8 +12,11 @@ export class NoticiasComponent implements OnInit {
   public content: Object;
   public language: String;
 
+  public page: number;
+
   constructor(private _contentService: ContentService) {
     this.language = _contentService.loadLanguage();
+    this.page = 0;
   }
 
   ngOnInit() {
@@ -39,6 +42,15 @@ export class NoticiasComponent implements OnInit {
 
     );
 
+  }
+
+  incrementPage(){
+    this.page ++;
+    
+  }
+
+  decrementPage(){
+    this.page --;
   }
 
 }
