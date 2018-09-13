@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 
 import { DatasheetService } from '../../services/datasheet.service';
 
@@ -14,6 +14,14 @@ export class FichaTecnicaComponent implements OnInit {
   public datasheet: Object;
 
   constructor(private _datasheetService: DatasheetService) { }
+
+  ngOnChanges(changes: SimpleChanges) {
+
+    if(!changes["element"].isFirstChange()){
+      this.loadDatasheet();
+    }
+
+  }
 
   ngOnInit() {
     this.loadDatasheet();
