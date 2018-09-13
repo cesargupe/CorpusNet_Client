@@ -16,6 +16,7 @@ import { HerramientasTecnicasComponent } from './components/herramientas-tecnica
 import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
 import { GruposComponent } from './components/grupos/grupos.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
+import { FichaTecnicaComponent } from './components/ficha-tecnica/ficha-tecnica.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
     HerramientasTecnicasComponent,
     AplicacionesComponent,
     GruposComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    FichaTecnicaComponent
   ],
   imports: [
     BrowserModule,

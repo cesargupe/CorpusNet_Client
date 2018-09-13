@@ -4,7 +4,7 @@
 
   <div class="row">
 
-    <div *ngFor="let corpus of content.data.corpus" class="col-lg-6">
+    <div *ngFor="let corpus of content.data.corpus; let i = index" class="col-lg-6">
       <div class="card card-grey">
         <div class="card-header card_header-blue_grey">
           {{corpus.autor}}
@@ -13,11 +13,14 @@
           <h5 class="card-title">{{corpus.name}}</h5>
           <p class="card-text text-justify">{{corpus.description}}</p>
           <a href={{corpus.buttons[0].link}} class="btn btn-primary float-right margin_left-15">{{corpus.buttons[0].name}}</a>
-          <a href={{corpus.buttons[1].link}} class="btn btn-outline-primary float-right">{{corpus.buttons[1].name}}</a>
+          <a data-toggle="modal" href="" (click)="setElement(i)" data-target="#ficha-tecnica" class="btn btn-outline-primary float-right">{{corpus.buttons[1].name}}</a>
         </div>
       </div>
     </div>
 
   </div>
+
+  <!-- ficha técnica -->
+  <app-ficha-tecnica *ngIf="selectedItem" [element]="selectedItem"></app-ficha-tecnica>
 
 </div>

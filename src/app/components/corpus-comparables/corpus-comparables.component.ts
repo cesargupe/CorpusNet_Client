@@ -11,6 +11,7 @@ export class CorpusComparablesComponent implements OnInit {
 
   public content: Object;
   public language: String;
+  public selectedItem: Object;
 
   constructor(private _contentService: ContentService) {
     this.language = _contentService.loadLanguage();
@@ -39,6 +40,10 @@ export class CorpusComparablesComponent implements OnInit {
 
     );
 
+  }
+
+  setElement(index){
+    this.selectedItem = this.content['data']['corpus'][index];
   }
 
 }
