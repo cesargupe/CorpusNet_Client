@@ -15,9 +15,15 @@
             <li class="page-item" [class.disabled]="page == 0">
               <a class="page-link" (click)="page = page - 1">Previous</a>
             </li>
-            <li class="page-item"><a class="page-link" (click)="page = page - 1">{{page}}</a></li>
-            <li class="page-item active"><a class="page-link" >{{page + 1}}</a></li>
-            <li class="page-item"><a class="page-link" (click)="page = page + 1">{{page + 2}}</a></li>
+            <li class="page-item" [class.d-none]="page == 0">
+              <a class="page-link" (click)="page = page - 1">{{page}}</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" >{{page + 1}}</a>
+            </li>
+            <li class="page-item" [class.d-none]="page > (content.data.news.length / 2) - 1">
+              <a class="page-link" (click)="page = page + 1">{{page + 2}}</a>
+            </li>
             <li class="page-item" [class.disabled]="page > (content.data.news.length / 2) - 1">
               <a class="page-link" (click)="page = page + 1">Next</a>
             </li>
