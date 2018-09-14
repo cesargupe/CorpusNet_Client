@@ -32,10 +32,6 @@ export class AppComponent implements OnInit{
 
     localStorage.setItem('language', language);
     window.location.reload();
-    //this._router.navigate(['/editar-album']);
-    //alert(this.router.url);
-    //this._router.navigate([this.router.url]);
-    //location.href = window.location.href;
 
   }
 

@@ -29,11 +29,12 @@
   border-bottom-left-radius: 0;
   border: 1px solid rgba(0, 0, 0, 0.07);
   border-bottom: 0;
-  color: #3e89bf;
+  color: #5395c5;
+  font-weight: 500;
 }
 
 .page-item.disabled .page-link {
-    color: #6c757d;
+    color: #6c757dc7;
 }
 
 /* Button bootstrap */
