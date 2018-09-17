@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
@@ -17,6 +18,7 @@ import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.co
 import { GruposComponent } from './components/grupos/grupos.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { FichaTecnicaComponent } from './components/ficha-tecnica/ficha-tecnica.component';
+import { AccesoComponent } from './components/acceso/acceso.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,14 @@ import { FichaTecnicaComponent } from './components/ficha-tecnica/ficha-tecnica.
     AplicacionesComponent,
     GruposComponent,
     NoticiasComponent,
-    FichaTecnicaComponent
+    FichaTecnicaComponent,
+    AccesoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+    FormsModule,
     NgxTwitterTimelineModule.forRoot()
   ],
   providers: [],
