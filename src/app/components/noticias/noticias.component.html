@@ -10,10 +10,10 @@
       <div class="p-3 box-shadow news text-justify">
         <h6 class="border-new border-gray pb-2 mb-0">{{content.data.title}}</h6>
 
-        <nav aria-label="Page navigation example">
+        <nav aria-label="" *ngIf="notices && notices.length">
           <ul class="pagination justify-content-end">
             <li class="page-item" [class.disabled]="page == 0">
-              <a class="page-link" (click)="page = page - 1">Previous</a>
+              <a class="page-link" (click)="page = page - 1">{{content.data.pagination.btn_previous}}</a>
             </li>
             <li class="page-item" [class.d-none]="page == 0">
               <a class="page-link" (click)="page = page - 1">{{page}}</a>
@@ -21,20 +21,20 @@
             <li class="page-item active">
               <a class="page-link" >{{page + 1}}</a>
             </li>
-            <li class="page-item" [class.d-none]="page > (content.data.news.length / 10) - 1">
+            <li class="page-item" [class.d-none]="page > (notices.length / 10) - 1">
               <a class="page-link" (click)="page = page + 1">{{page + 2}}</a>
             </li>
-            <li class="page-item" [class.disabled]="page > (content.data.news.length / 10) - 1">
-              <a class="page-link" (click)="page = page + 1">Next</a>
+            <li class="page-item" [class.disabled]="page > (notices.length / 10) - 1">
+              <a class="page-link" (click)="page = page + 1">{{content.data.pagination.btn_next}}</a>
             </li>
           </ul>
         </nav>
 
-        <div *ngFor="let new of content.data.news | slice : page * 10 : (page + 1) * 10" class="media text-muted pt-3 ">
+        <div *ngFor="let notice of notices | slice : page * 10 : (page + 1) * 10" class="media text-muted pt-3 ">
           <p class="media-body pb-3 mb-0 lh-125 border-new">
-            <strong class="d-block text-gray-dark">{{new.team}}</strong>
-            {{new.text}}
-            <u><a class="d-block text-muted font-italic" href="{{new.link}}">{{new.link}}</a></u>
+            <strong class="d-block text-gray-dark">{{notice.team}}</strong>
+            {{notice.text}}
+            <u><a class="d-block text-muted font-italic" href="{{notice.link}}">{{notice.link}}</a></u>
           </p>
         </div>
 

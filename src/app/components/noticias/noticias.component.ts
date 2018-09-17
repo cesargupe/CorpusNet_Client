@@ -1,26 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ContentService } from '../../services/content.service';
+import { NoticeService } from '../../services/notice.service';
 
 @Component({
   selector: 'app-noticias',
   templateUrl: './noticias.component.html',
-  styleUrls: ['./noticias.component.css']
+  styleUrls: ['./noticias.component.css'],
+  providers: [NoticeService]
 })
 export class NoticiasComponent implements OnInit {
 
   public content: Object;
+  public notices: Object;
   public language: String;
 
   public page: number;
 
-  constructor(private _contentService: ContentService) {
+  constructor(private _contentService: ContentService, private _noticeService: NoticeService) {
     this.language = _contentService.loadLanguage();
     this.page = 0;
   }
 
   ngOnInit() {
     this.loadContent('noticias');
+    this.loadNotices();
   }
 
   loadContent(contentName){
@@ -30,7 +34,6 @@ export class NoticiasComponent implements OnInit {
       response => {
 
         this.content = response.content;
-        console.log(this.content);
 
       },
 
@@ -44,13 +47,25 @@ export class NoticiasComponent implements OnInit {
 
   }
 
-  incrementPage(){
-    this.page ++;
-    
-  }
+  loadNotices(){
 
-  decrementPage(){
-    this.page --;
+    this._noticeService.getNotices().subscribe(
+
+      response => {
+
+        this.notices = response.notices;
+        console.log(this.notices);
+
+      },
+
+      error =>{
+
+        console.log(error._body);
+
+      }
+
+    );
+
   }
 
 }
