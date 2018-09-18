@@ -76,6 +76,21 @@ strong {
     font-weight: bolder;
 }
 
+.inline{
+  display: inline-flex;
+}
+
+.inline.link{
+  max-width: 70%;
+}
+
+.datetime{
+  text-align: right;
+  font-weight: 500;
+  margin-right: 2px;
+  color: #6c757d7a;
+}
+
 .small {
     font-size: 85%;
     font-weight: 400;

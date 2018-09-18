@@ -1,15 +1,35 @@
-<form *ngIf="content" ngNativeValidate #loginForm="ngForm" (ngSubmit)="login()" class="dropdown-menu dropdown-menu-right p-4" aria-labelledby="loginForm">
+<li *ngIf="!session.identity || !session.token" class="nav-item">
 
-  <div class="form-group">
-    <label>{{content.data.username_title}}</label>
-    <input #username="ngModel" name="username" [(ngModel)]="user.username" type="email" class="form-control" placeholder="{{content.data.username_example}}" required/>
-  </div>
+  <a class="nav-link" href="#" id="loginForm" role="button" data-toggle="dropdown">
+    <i class="fas fa-sign-in-alt"></i>
+  </a>
 
-  <div class="form-group">
-    <label>{{content.data.password_title}}</label>
-    <input #password="ngModel" name="password" [(ngModel)]="user.password" type="password" class="form-control" placeholder="{{content.data.password_title}}" required/>
-  </div>
+  <form *ngIf="content" ngNativeValidate #loginForm="ngForm" (ngSubmit)="login()" class="dropdown-menu dropdown-menu-right p-4" aria-labelledby="loginForm">
 
-  <input type="submit" value="{{content.data.btnLogin_title}}" class="btn btn-primary btn-block mt-3" />
+    <div class="form-group">
+      <label>{{content.data.username_title}}</label>
+      <input #email="ngModel" name="email" [(ngModel)]="user.email" type="email" class="form-control" placeholder="{{content.data.username_example}}" required/>
+    </div>
 
-</form>
+    <div class="form-group">
+      <label>{{content.data.password_title}}</label>
+      <input #password="ngModel" name="password" [(ngModel)]="user.password" type="password" class="form-control" placeholder="{{content.data.password_title}}" required/>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+      {{content.data.error_login}}
+    </div>
+
+    <input type="submit" value="{{content.data.btnLogin_title}}" class="btn btn-primary btn-block mt-3" />
+
+  </form>
+
+</li>
+
+<li *ngIf="session.identity && session.token" class="nav-item">
+
+  <a class="nav-link" href="#" (click)="logOut()">
+    <i class="fas fa-sign-out-alt"></i>
+  </a>
+
+</li>

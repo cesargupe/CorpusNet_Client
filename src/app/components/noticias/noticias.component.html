@@ -30,13 +30,30 @@
           </ul>
         </nav>
 
+        <div *ngFor="let notice of notices | slice : page * 10 : (page + 1) * 10" class="text-muted pt-3 border-new pb-3">
+          <strong class="text-gray-dark mb-0 lh-125">{{notice.team}}</strong>
+          <p class="mb-0">{{notice.text}}</p>
+
+          <div class="inline link">
+            <u class="text-truncate"><a class="text-muted text-truncate font-italic" href="{{notice.link}}">{{notice.link}}</a></u>
+          </div>
+
+          <div class="inline float-right">
+            <span class="datetime">{{notice.created | date:'dd-MM-yyyy'}}</span>
+          </div>
+
+        </div>
+
+        <!--
         <div *ngFor="let notice of notices | slice : page * 10 : (page + 1) * 10" class="media text-muted pt-3 ">
           <p class="media-body pb-3 mb-0 lh-125 border-new">
             <strong class="d-block text-gray-dark">{{notice.team}}</strong>
             {{notice.text}}
             <u><a class="d-block text-muted font-italic" href="{{notice.link}}">{{notice.link}}</a></u>
+            <span class="datetime">10-09-2018 10:50</span>
           </p>
         </div>
+      -->
 
       </div>
 

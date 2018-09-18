@@ -22,3 +22,7 @@
 .dropdown-menu-right{
   margin-right: 2px;
 }
+
+.alert-danger{
+  padding: .4rem;
+}
