@@ -17,10 +17,20 @@
 
     <br>
 
+    <div *ngIf="!session" class="center_menu">
+      <button type="button" class="btn btn-outline-primary btn-sms add">Nuevo <i class="fas fa-plus"></i></button>
+    </div>
+
+    <br>
+
     <div *ngFor="let corpus of content.data.corpus" class="card corpus">
       <div class="card-body">
         <p class="card-title align-middle">{{corpus.name}}</p>
         <span class="card-text"><small class="text-muted">{{corpus.autor}}</small></span>
+        <div *ngIf="!session" class="edit_menu mt-3">
+          <button type="button" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
+          <button type="button" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+        </div>
         <a class="btn btn-primary float-right margin_left-15" href={{corpus.buttons[0].link}}>{{corpus.buttons[0].name}}</a>
         <a class="btn btn-outline-primary float-right" href={{corpus.buttons[1].link}}>{{corpus.buttons[1].name}}</a>
       </div>

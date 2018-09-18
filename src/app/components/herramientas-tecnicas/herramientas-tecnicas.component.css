@@ -17,6 +17,11 @@
   background-color: #34759cbf;
   color: white;
 }
+
+.transparent{
+  border-color: rgba(0, 0, 0, 0);
+  font-size: 1rem;
+}
 /* Button bootstrap */
 
 .margin-left_right_50{
@@ -30,6 +35,18 @@
   margin-bottom: 20px;
   font-size: 2.1rem;
   color: #343a40;
+}
+
+.add{
+  margin-top: 10px;
+  margin-bottom: -10px;
+  width: 200px;
+}
+
+.center_menu{
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nav-tabs, .tab-content{

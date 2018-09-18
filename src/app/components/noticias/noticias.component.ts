@@ -15,6 +15,8 @@ export class NoticiasComponent implements OnInit {
   public notices: Object;
   public language: String;
 
+  public session = true;
+
   public page: number;
 
   constructor(private _contentService: ContentService, private _noticeService: NoticeService) {
@@ -66,6 +68,10 @@ export class NoticiasComponent implements OnInit {
 
     );
 
+  }
+
+  updateNotice(notice){
+    console.log(notice);
   }
 
 }

@@ -2,12 +2,20 @@
 
   <!--<h1 class="text-center general-title">{{content.data.title}}</h1>-->
 
+  <div *ngIf="session" class="center_menu">
+    <button type="button" class="btn btn-outline-primary btn-sms add">Nuevo <i class="fas fa-plus"></i></button>
+  </div>
+
   <div class="row">
 
     <div *ngFor="let corpus of content.data.corpus; let i = index" class="col-lg-6">
       <div class="card card-grey">
         <div class="card-header card_header-blue_grey">
           {{corpus.autor}}
+          <div *ngIf="session" class="float-right">
+            <button type="button" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
+            <button type="button" class="transparent btn btn-outline-danger btn-sm mr-1"><i class="far fa-trash-alt"></i></button>
+          </div>
         </div>
         <div class="card-body">
           <h5 class="card-title">{{corpus.name}}</h5>

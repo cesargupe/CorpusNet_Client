@@ -29,6 +29,11 @@
     </div>
 
     <div class="card-footer">
+
+      <div *ngIf="session" class="float-left mt-1">
+        <button type="button" class="transparent btn btn-outline-primary btn-sm"><i class="far fa-edit"></i></button>
+      </div>
+
       <!--<span class="footer-text">Universidad de León</span>-->
       <a class="btn btn-outline-primary float-right margin_left-15" href={{team.buttons[0].link}}>{{team.buttons[0].name}}</a>
     </div>

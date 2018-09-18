@@ -12,6 +12,8 @@ export class HerramientasTagsetsComponent implements OnInit {
   public content: Object;
   public language: String;
 
+  public session = true;
+
   constructor(private _contentService: ContentService) {
     this.language = _contentService.loadLanguage();
   }

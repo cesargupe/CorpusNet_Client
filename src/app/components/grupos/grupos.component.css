@@ -17,6 +17,11 @@
   background-color: #34759cbf;
   color: white;
 }
+
+.transparent{
+  border-color: rgba(0, 0, 0, 0);
+  font-size: 1rem;
+}
 /* Button bootstrap */
 
 .margin-left_right_50{

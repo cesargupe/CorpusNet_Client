@@ -13,6 +13,8 @@ export class CorpusComparablesComponent implements OnInit {
   public language: String;
   public selectedItem: Object;
 
+  public session = true;
+
   constructor(private _contentService: ContentService) {
     this.language = _contentService.loadLanguage();
   }

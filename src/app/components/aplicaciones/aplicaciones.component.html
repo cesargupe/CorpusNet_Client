@@ -2,6 +2,10 @@
 
   <!--<h1 class="text-center general-title">Corpus paralelos</h1>-->
 
+  <div *ngIf="session" class="center_menu">
+    <button type="button" class="btn btn-outline-primary btn-sms add">Nuevo <i class="fas fa-plus"></i></button>
+  </div>
+
   <br>
 
   <div *ngFor="let application of content.data.applications" class="card">
@@ -25,6 +29,12 @@
     </div>
 
     <div class="card-footer">
+
+      <div *ngIf="session" class="float-left mt-1">
+        <button type="button" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
+        <button type="button" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+      </div>
+
       <a class="btn btn-primary float-right margin_left-15" href={{application.buttons[0].link}}>{{application.buttons[0].name}}</a>
       <a class="btn btn-outline-primary float-right" href={{application.buttons[1].link}}>{{application.buttons[1].name}}</a>
     </div>
