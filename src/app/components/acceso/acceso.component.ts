@@ -31,19 +31,12 @@ export class AccesoComponent implements OnInit {
   loadContent(contentName){
 
     this._contentService.getContent(contentName, this.language).subscribe(
-
       response => {
-
         this.content = response.content;
-
       },
-
       error =>{
-
         console.log(error);
-
       }
-
     );
 
   }
@@ -51,20 +44,15 @@ export class AccesoComponent implements OnInit {
   login(){
 
     this._userService.signIn(this.user).subscribe(
-
       response => {
 
         this._userService.setSession(this.session['identity'], this.session['token']);
         window.location.reload();
 
       },
-
       error =>{
-
         this.error = error;
-
       }
-
     );
 
   }

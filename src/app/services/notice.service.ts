@@ -24,4 +24,18 @@ export class NoticeService {
 
   }
 
+  saveNotice(token, notice){
+
+    let params = JSON.stringify(notice);
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.post(this.url + 'notice/', params, options).map(res => res.json());
+
+  }
+
 }

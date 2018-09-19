@@ -10,7 +10,7 @@
       <div class="p-3 box-shadow news text-justify">
         <h6 class="border-new border-gray pb-2 mb-0">{{content.data.title}}
 
-          <button *ngIf="session" type="button" data-toggle="modal" data-target="#modifyContent" class="btn btn-outline-primary btn-sm add">Nueva <i class="fas fa-plus"></i></button>
+          <button *ngIf="session" (click)="newNotice = {}" type="button" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm add">Nueva <i class="fas fa-plus"></i></button>
 
         </h6>
 
@@ -34,7 +34,7 @@
           </ul>
         </nav>
 
-        <div *ngFor="let notice of notices | slice : page * 10 : (page + 1) * 10" class="text-muted pt-3 border-new pb-3">
+        <div *ngFor="let notice of notices | slice : page * 10 : (page + 1) * 10; let index = index" class="text-muted pt-3 border-new pb-3">
           <strong class="text-gray-dark mb-0 lh-125">{{notice.team}}</strong>
           <p class="mb-0">{{notice.text}}</p>
 
@@ -47,22 +47,11 @@
           </div>
 
           <div *ngIf="session" class="text-right mt-2">
-            <button type="button" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
+            <button type="button" (click)="newNotice = deepCopy(notice, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
             <button type="button" class="transparent btn btn-outline-danger btn-sm mr-1"><i class="far fa-trash-alt"></i></button>
           </div>
 
         </div>
-
-        <!--
-        <div *ngFor="let notice of notices | slice : page * 10 : (page + 1) * 10" class="media text-muted pt-3 ">
-          <p class="media-body pb-3 mb-0 lh-125 border-new">
-            <strong class="d-block text-gray-dark">{{notice.team}}</strong>
-            {{notice.text}}
-            <u><a class="d-block text-muted font-italic" href="{{notice.link}}">{{notice.link}}</a></u>
-            <span class="datetime">10-09-2018 10:50</span>
-          </p>
-        </div>
-      -->
 
       </div>
 
@@ -80,23 +69,40 @@
 
   </div>
 
-  <!-- Modal -->
-<div class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Modal edit content-->
+<div *ngIf="session" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nueva Noticia</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
+      <form ngNativeValidate #loginForm="ngForm" (ngSubmit)="saveNotice()">
+
+        <div class="modal-header">
+          <h5 *ngIf="!newNotice._id" class="modal-title">Nueva Noticia</h5>
+          <h5 *ngIf="newNotice._id" class="modal-title">Modificar Noticia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label>Texto de la noticia</label>
+            <textarea rows="3" #text="ngModel" name="text" [(ngModel)]="newNotice.text" type="text" class="form-control" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Link de la noticia</label>
+            <input #link="ngModel" name="link" [(ngModel)]="newNotice.link" type="text" class="form-control" placeholder="www.exaple.com"/>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value="Guardar"/>
+        </div>
+
+      </form>
+
     </div>
   </div>
 </div>
