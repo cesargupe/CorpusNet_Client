@@ -12,7 +12,7 @@ export class CorpusParalelosComponent implements OnInit {
   public content: Object;
   public language: String;
 
-  //public session = false;
+  public session = false;
 
   constructor(private _contentService: ContentService) {
     this.language = _contentService.loadLanguage();

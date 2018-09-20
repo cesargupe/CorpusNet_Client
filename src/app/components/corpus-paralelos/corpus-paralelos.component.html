@@ -17,7 +17,7 @@
 
     <br>
 
-    <div *ngIf="!session" class="center_menu">
+    <div *ngIf="session" class="center_menu">
       <button type="button" class="btn btn-outline-primary btn-sms add">Nuevo <i class="fas fa-plus"></i></button>
     </div>
 
@@ -27,7 +27,7 @@
       <div class="card-body">
         <p class="card-title align-middle">{{corpus.name}}</p>
         <span class="card-text"><small class="text-muted">{{corpus.autor}}</small></span>
-        <div *ngIf="!session" class="edit_menu mt-3">
+        <div *ngIf="session" class="edit_menu mt-3">
           <button type="button" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
           <button type="button" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
         </div>
