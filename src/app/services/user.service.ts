@@ -2,14 +2,20 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class UserService {
 
   public url: string;
+  private storage = new Subject<string>();
 
   constructor(private _http: Http) {
     this.url = 'http://localhost:3977/api/';
+  }
+
+  watchStorage(): Observable<any> {
+    return this.storage.asObservable();
   }
 
   signIn(user_to_login){
@@ -30,6 +36,8 @@ export class UserService {
 
     localStorage.setItem('identity', JSON.stringify(identity));
     localStorage.setItem('token', JSON.stringify(token));
+
+    this.storage.next("change");
 
   }
 
@@ -54,7 +62,7 @@ export class UserService {
     localStorage.removeItem('identity');
     localStorage.removeItem('token');
 
-    window.location.reload();
+    this.storage.next("change");
 
   }
 

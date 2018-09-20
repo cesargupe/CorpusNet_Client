@@ -19,7 +19,10 @@ export class HerramientasTagsetsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('herramientas-tagsets');
+
   }
 
   loadContent(contentName){
@@ -41,6 +44,13 @@ export class HerramientasTagsetsComponent implements OnInit {
 
     );
 
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('herramientas-tagsets');
+    });
   }
 
 }

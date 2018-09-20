@@ -19,7 +19,10 @@ export class HerramientasTecnicasComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('herramientas-tecnicas');
+    
   }
 
   loadContent(contentName){
@@ -41,6 +44,13 @@ export class HerramientasTecnicasComponent implements OnInit {
 
     );
 
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('herramientas-tecnicas');
+    });
   }
 
 }

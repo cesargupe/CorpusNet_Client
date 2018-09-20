@@ -17,7 +17,10 @@ export class InicioComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('inicio');
+
   }
 
   loadContent(contentName){
@@ -38,6 +41,13 @@ export class InicioComponent implements OnInit {
 
     );
 
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('inicio');
+    });
   }
 
 }

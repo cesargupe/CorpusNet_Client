@@ -20,7 +20,10 @@ export class CorpusComparablesComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('corpus-comparables');
+
   }
 
   loadContent(contentName){
@@ -46,6 +49,13 @@ export class CorpusComparablesComponent implements OnInit {
 
   setElement(index){
     this.selectedItem = this.content['data']['corpus'][index];
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('corpus-comparables');
+    });
   }
 
 }

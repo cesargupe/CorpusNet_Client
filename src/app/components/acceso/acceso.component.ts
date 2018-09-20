@@ -24,8 +24,11 @@ export class AccesoComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('acceso');
     this.session = this._userService.getSession();
+
   }
 
   loadContent(contentName){
@@ -44,15 +47,15 @@ export class AccesoComponent implements OnInit {
   login(){
 
     this._userService.signIn(this.user).subscribe(
+
       response => {
-
         this._userService.setSession(response.user, response.token);
-        window.location.reload();
-
       },
+
       error =>{
         this.error = error;
       }
+
     );
 
   }
@@ -61,6 +64,17 @@ export class AccesoComponent implements OnInit {
 
     this._userService.removeSession();
 
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('acceso');
+    });
+
+    this._userService.watchStorage().subscribe((data:string) => {
+      this.session = this._userService.getSession();
+    });
   }
 
 }

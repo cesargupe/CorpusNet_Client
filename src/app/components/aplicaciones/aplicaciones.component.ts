@@ -19,7 +19,10 @@ export class AplicacionesComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('aplicaciones');
+    
   }
 
   loadContent(contentName){
@@ -41,6 +44,13 @@ export class AplicacionesComponent implements OnInit {
 
     );
 
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('aplicaciones');
+    });
   }
 
 }

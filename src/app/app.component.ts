@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ContentService } from './services/content.service';
 import { UserService } from './services/user.service';
 
+declare var $:any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,14 +27,14 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
 
+    this.watchStorage();
     this.loadContent('general');
 
   }
 
   changeLanguage(language){
 
-    localStorage.setItem('language', language);
-    window.location.reload();
+    this._contentService.setLanguage(language);
 
   }
 
@@ -55,6 +57,13 @@ export class AppComponent implements OnInit{
 
     );
 
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('general');
+    });
   }
 
 }

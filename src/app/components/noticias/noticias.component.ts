@@ -32,9 +32,12 @@ export class NoticiasComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('noticias');
     this.loadNotices();
     this.session = this._userService.getSession();
+
   }
 
   loadContent(contentName){
@@ -143,6 +146,17 @@ export class NoticiasComponent implements OnInit {
 
     return copyELement;
 
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('noticias');
+    });
+
+    this._userService.watchStorage().subscribe((data:string) => {
+      this.session = this._userService.getSession();
+    });
   }
 
 }

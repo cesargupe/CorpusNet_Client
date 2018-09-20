@@ -19,7 +19,10 @@ export class CorpusParalelosComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('corpus-paralelos');
+
   }
 
   loadContent(contentName){
@@ -45,6 +48,13 @@ export class CorpusParalelosComponent implements OnInit {
 
   closePanel(){
     document.getElementById('instructions').classList.add("d-none");
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('corpus-paralelos');
+    });
   }
 
 }

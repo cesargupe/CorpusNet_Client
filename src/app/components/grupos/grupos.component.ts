@@ -19,7 +19,10 @@ export class GruposComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.watchStorage();
     this.loadContent('grupos');
+    
   }
 
   loadContent(contentName){
@@ -41,6 +44,13 @@ export class GruposComponent implements OnInit {
 
     );
 
+  }
+
+  watchStorage(){
+    this._contentService.watchStorage().subscribe((data:string) => {
+      this.language = data;
+      this.loadContent('grupos');
+    });
   }
 
 }
