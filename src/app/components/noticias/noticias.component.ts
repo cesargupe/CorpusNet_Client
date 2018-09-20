@@ -34,7 +34,7 @@ export class NoticiasComponent implements OnInit {
   ngOnInit() {
     this.loadContent('noticias');
     this.loadNotices();
-    //this.session = this._userService.getSession();
+    this.session = this._userService.getSession();
   }
 
   loadContent(contentName){
