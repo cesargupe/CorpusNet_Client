@@ -38,4 +38,34 @@ export class NoticeService {
 
   }
 
+  editNotice(token, notice){
+
+    let params = JSON.stringify(notice);
+
+    console.log(params);
+
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.put(this.url + 'notice/' + notice._id, params, options).map(res => res.json());
+
+  }
+
+  deleteNotice(token, id){
+
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.delete(this.url + 'notice/' + id, options).map(res => res.json());
+
+  }
+
 }

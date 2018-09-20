@@ -38,7 +38,7 @@ export class UserService {
     let sesion = {identity: '', token: ''};
 
     if (localStorage.getItem('identity')) {
-        sesion.identity = localStorage.getItem('identity');
+        sesion.identity = JSON.parse(localStorage.getItem('identity'));
     }
 
     if (localStorage.getItem('token')) {
@@ -53,6 +53,8 @@ export class UserService {
 
     localStorage.removeItem('identity');
     localStorage.removeItem('token');
+
+    window.location.reload();
 
   }
 

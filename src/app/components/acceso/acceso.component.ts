@@ -46,7 +46,7 @@ export class AccesoComponent implements OnInit {
     this._userService.signIn(this.user).subscribe(
       response => {
 
-        this._userService.setSession(this.session['identity'], this.session['token']);
+        this._userService.setSession(response.user, response.token);
         window.location.reload();
 
       },
@@ -60,7 +60,6 @@ export class AccesoComponent implements OnInit {
   logOut(){
 
     this._userService.removeSession();
-    window.location.reload();
 
   }
 

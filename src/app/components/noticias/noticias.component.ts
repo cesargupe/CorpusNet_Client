@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ContentService } from '../../services/content.service';
 import { NoticeService } from '../../services/notice.service';
+import { UserService } from '../../services/user.service';
 
 declare var $:any;
 
@@ -13,25 +14,27 @@ declare var $:any;
 })
 export class NoticiasComponent implements OnInit {
 
-  public content: Object;
-  public notices: Object[];
+  public content: any;
+  public notices: any[];
   public language: String;
   public page: number;
 
-  public session = true;
-  public token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmEyM2JmZjk1ZDg0YjAwYjc0ZTM4NTUiLCJ0ZWFtIjoiQUNUUkVTIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTUzNzM2MDUwMTY5OSwiZXhwIjoxNTM4MjI0NTAxNjk5fQ.BQZzT-JnpmYOzySRNS1TNQQZNouVzQCipMydm5OXRyE";
-  public newNotice: Object;
+  public session: any;
+  public newNotice: any;
 
 
-  constructor(private _contentService: ContentService, private _noticeService: NoticeService) {
+  constructor(private _contentService: ContentService, private _noticeService: NoticeService, private _userService: UserService) {
     this.language = _contentService.loadLanguage();
     this.page = 0;
+
+    this.session = {identity: '', token: ''};
     this.newNotice = {};
   }
 
   ngOnInit() {
     this.loadContent('noticias');
     this.loadNotices();
+    //this.session = this._userService.getSession();
   }
 
   loadContent(contentName){
@@ -39,15 +42,11 @@ export class NoticiasComponent implements OnInit {
     this._contentService.getContent(contentName, this.language).subscribe(
 
       response => {
-
         this.content = response.content;
-
       },
 
       error =>{
-
-        console.log(error._body);
-
+        window.location.reload();
       }
 
     );
@@ -59,48 +58,43 @@ export class NoticiasComponent implements OnInit {
     this._noticeService.getNotices().subscribe(
 
       response => {
-
         this.notices = response.notices;
-        console.log(this.notices);
-
       },
 
       error =>{
-
         console.log(error._body);
-
       }
 
     );
 
   }
 
+  public error: boolean;
+
   saveNotice(){
 
-    if (this.newNotice['_id']) {
+    if (this.newNotice._id) {
       this.updateNotice();
     }else{
       this.addNotice();
     }
 
-    $('#modifyContent').modal('toggle');
-
   }
 
   addNotice(){
 
-    this._noticeService.saveNotice(this.token, this.newNotice).subscribe(
+    this.newNotice.team = this.session.identity.team;
+
+    this._noticeService.saveNotice(this.session.token, this.newNotice).subscribe(
 
       response => {
-
         this.notices.unshift(response.notice);
-        console.log(response.notice);
-
+        $('#modifyContent').modal('toggle');
       },
+
       error =>{
-
-        console.log(error);
-
+        this.error = true;
+        if (error.status == 401) this._userService.removeSession();
       }
 
     );
@@ -108,8 +102,38 @@ export class NoticiasComponent implements OnInit {
   }
 
   updateNotice(){
-    console.log(this.newNotice);
-    this.notices[this.newNotice['index']] = this.newNotice;
+
+    this._noticeService.editNotice(this.session.token, this.newNotice).subscribe(
+
+      response => {
+        this.notices[this.newNotice.index] = this.newNotice;
+        $('#modifyContent').modal('toggle');
+      },
+
+      error =>{
+        this.error = true;
+        if (error.status == 401) this._userService.removeSession();
+      }
+
+    );
+
+
+  }
+
+  deleteNotice(noticeID, index){
+
+    this._noticeService.deleteNotice(this.session.token, noticeID).subscribe(
+
+      response => {
+        this.notices.splice(index, 1);
+      },
+
+      error =>{
+        if (error.status == 401) this._userService.removeSession();
+      }
+
+    );
+
   }
 
   deepCopy(element, index){

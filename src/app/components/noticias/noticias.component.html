@@ -10,7 +10,7 @@
       <div class="p-3 box-shadow news text-justify">
         <h6 class="border-new border-gray pb-2 mb-0">{{content.data.title}}
 
-          <button *ngIf="session" (click)="newNotice = {}" type="button" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm add">Nueva <i class="fas fa-plus"></i></button>
+          <button *ngIf="session.identity" (click)="newNotice = {}" type="button" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm add">{{content.data.edit_menu.new_btn}} <i class="fas fa-plus"></i></button>
 
         </h6>
 
@@ -46,9 +46,9 @@
             <span class="datetime">{{notice.created | date:'dd-MM-yyyy'}}</span>
           </div>
 
-          <div *ngIf="session" class="text-right mt-2">
+          <div *ngIf="session.identity && (notice.team == session.identity.team || session.identity.role == 'ROLE_ADMIN')" class="text-right mt-2">
             <button type="button" (click)="newNotice = deepCopy(notice, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
-            <button type="button" class="transparent btn btn-outline-danger btn-sm mr-1"><i class="far fa-trash-alt"></i></button>
+            <button type="button" (click)="deleteNotice(notice._id, index)" class="transparent btn btn-outline-danger btn-sm mr-1"><i class="far fa-trash-alt"></i></button>
           </div>
 
         </div>
@@ -69,43 +69,48 @@
 
   </div>
 
-  <!-- Modal edit content-->
-<div *ngIf="session" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+<!-- Modal edit content-->
+  <div *ngIf="session.identity" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
 
-      <form ngNativeValidate #loginForm="ngForm" (ngSubmit)="saveNotice()">
+        <form ngNativeValidate #loginForm="ngForm" (ngSubmit)="saveNotice()">
 
-        <div class="modal-header">
-          <h5 *ngIf="!newNotice._id" class="modal-title">Nueva Noticia</h5>
-          <h5 *ngIf="newNotice._id" class="modal-title">Modificar Noticia</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+          <div class="modal-header">
+            <h5 *ngIf="!newNotice._id" class="modal-title">{{content.data.edit_menu.new_title}}</h5>
+            <h5 *ngIf="newNotice._id" class="modal-title">{{content.data.edit_menu.edit_title}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
 
-          <div class="form-group">
-            <label>Texto de la noticia</label>
-            <textarea rows="3" #text="ngModel" name="text" [(ngModel)]="newNotice.text" type="text" class="form-control" required></textarea>
+            <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+              {{content.data.edit_menu.error_text}}
+            </div>
+
+            <div class="form-group">
+              <label>{{content.data.edit_menu.text_title}}</label>
+              <textarea rows="3" #text="ngModel" name="text" [(ngModel)]="newNotice.text" type="text" class="form-control" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>{{content.data.edit_menu.link_title}}</label>
+              <input #link="ngModel" name="link" [(ngModel)]="newNotice.link" type="text" class="form-control" placeholder="www.exaple.com"/>
+            </div>
+
           </div>
 
-          <div class="form-group">
-            <label>Link de la noticia</label>
-            <input #link="ngModel" name="link" [(ngModel)]="newNotice.link" type="text" class="form-control" placeholder="www.exaple.com"/>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{content.data.edit_menu.cancel_btn}}</button>
+            <input type="submit" class="btn btn-primary" value="{{content.data.edit_menu.save_btn}}"/>
           </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-          <input type="submit" class="btn btn-primary" value="Guardar"/>
-        </div>
+        </form>
 
-      </form>
-
+      </div>
     </div>
   </div>
-</div>
 
 
 </div>

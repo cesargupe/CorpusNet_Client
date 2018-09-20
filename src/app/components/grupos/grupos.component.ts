@@ -12,7 +12,7 @@ export class GruposComponent implements OnInit {
   public content: Object;
   public language: String;
 
-  public session = true;
+  public session = false;
 
   constructor(private _contentService: ContentService) {
     this.language = _contentService.loadLanguage();
