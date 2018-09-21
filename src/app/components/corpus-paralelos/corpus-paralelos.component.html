@@ -17,22 +17,72 @@
 
     <br>
 
-    <div *ngIf="session" class="center_menu">
-      <button type="button" class="btn btn-outline-primary btn-sms add">Nuevo <i class="fas fa-plus"></i></button>
+    <div *ngIf="session.identity" class="center_menu">
+      <button (click)="newContent = {'index': 0}" type="button" data-toggle="modal" data-target="#modifyContent" class="btn btn-outline-primary btn-sm add">{{content.data.edit_menu.new_btn}} <i class="fas fa-plus"></i></button>
     </div>
 
     <br>
 
-    <div *ngFor="let corpus of content.data.corpus" class="card corpus">
+    <div *ngFor="let corpus of content.data.corpus; let index = index" class="card corpus">
       <div class="card-body">
         <p class="card-title align-middle">{{corpus.name}}</p>
-        <span class="card-text"><small class="text-muted">{{corpus.autor}}</small></span>
-        <div *ngIf="session" class="edit_menu mt-3">
-          <button type="button" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
-          <button type="button" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+        <h5 class="card-subtitle text-grey">{{corpus.author}} <span class="acronym">- {{corpus.acronym}}</span></h5>
+        <div *ngIf="session.identity && (corpus.author == session.identity.team || session.identity.role == 'ROLE_ADMIN')" class="edit_menu mt-3">
+          <button type="button" (click)="newContent = deepCopy(corpus, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
+          <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm mr-1"><i class="far fa-trash-alt"></i></button>
         </div>
-        <a class="btn btn-primary float-right margin_left-15" href={{corpus.buttons[0].link}}>{{corpus.buttons[0].name}}</a>
-        <a class="btn btn-outline-primary float-right" href={{corpus.buttons[1].link}}>{{corpus.buttons[1].name}}</a>
+        <a class="btn btn-primary float-right margin_left-15" href={{corpus.link}}>{{content.data.buttons[0]}}</a>
+        <a class="btn btn-outline-primary float-right" href={{corpus.link}}>{{content.data.buttons[1]}}</a>
+      </div>
+    </div>
+
+    <!-- Modal edit content-->
+    <div *ngIf="session.identity" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <form ngNativeValidate #loginForm="ngForm" (ngSubmit)="saveContent()">
+
+            <div class="modal-header">
+              <h5 *ngIf="!newContent._id" class="modal-title">{{content.data.edit_menu.new_title}}</h5>
+              <h5 *ngIf="newContent._id" class="modal-title">{{content.data.edit_menu.edit_title}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+                {{content.data.edit_menu.error_text}}
+              </div>
+
+              <div class="form-group">
+                <label>{{content.data.edit_menu.name_title}}</label>
+                <input #name="ngModel" name="name" [(ngModel)]="newContent.name" type="text" class="form-control" placeholder="Example: C-GEFEM" required/>
+              </div>
+
+              <!--
+              <div class="form-group">
+                <label>{{content.data.edit_menu.description_title}}</label>
+                <textarea rows="3" #description="ngModel" name="description" [(ngModel)]="newContent.description" type="text" class="form-control" required></textarea>
+              </div>
+            -->
+
+              <div class="form-group">
+                <label>{{content.data.edit_menu.email_title}}</label>
+                <input #email="ngModel" name="email" [(ngModel)]="newContent.link" type="text" class="form-control" placeholder="www.exaple.com" required/>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{content.data.edit_menu.cancel_btn}}</button>
+              <input type="submit" class="btn btn-primary" value="{{content.data.edit_menu.save_btn}}"/>
+            </div>
+
+          </form>
+
+        </div>
       </div>
     </div>
 

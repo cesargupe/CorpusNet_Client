@@ -22,7 +22,6 @@ export class NoticiasComponent implements OnInit {
   public session: any;
   public newNotice: any;
 
-
   constructor(private _contentService: ContentService, private _noticeService: NoticeService, private _userService: UserService) {
     this.language = _contentService.loadLanguage();
     this.page = 0;

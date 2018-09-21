@@ -18,18 +18,6 @@ export class ContentService {
     return this.storage.asObservable();
   }
 
-  getContent(nameContent, language){
-
-    let headers = new Headers({
-      'Content-Type':'application/json'
-    });
-
-    let options = new RequestOptions({headers: headers});
-
-    return this._http.get(this.url + 'content/' + nameContent + '/' + language, options).map(res => res.json());
-
-  }
-
   loadLanguage(){
 
     let language = 'es';
@@ -42,8 +30,37 @@ export class ContentService {
   }
 
   setLanguage(language){
+
     localStorage.setItem('language', language);
     this.storage.next(this.loadLanguage());
+    
+  }
+
+  getContent(nameContent, language){
+
+    let headers = new Headers({
+      'Content-Type':'application/json'
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.get(this.url + 'content/' + nameContent + '/' + language, options).map(res => res.json());
+
+  }
+
+  editContent(token, content){
+
+    let params = JSON.stringify(content);
+
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.put(this.url + 'content/' + content._id, params, options).map(res => res.json());
+
   }
 
 }
