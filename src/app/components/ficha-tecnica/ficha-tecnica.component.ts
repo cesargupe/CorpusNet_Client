@@ -11,7 +11,7 @@ import { DatasheetService } from '../../services/datasheet.service';
 export class FichaTecnicaComponent implements OnInit {
 
   @Input() element: Object;
-  public datasheet: Object;
+  public datasheet: any;
 
   constructor(private _datasheetService: DatasheetService) { }
 

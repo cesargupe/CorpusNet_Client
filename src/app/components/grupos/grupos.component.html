@@ -4,7 +4,7 @@
 
   <br>
 
-  <div *ngFor="let team of content.data.teams" class="card">
+  <div *ngFor="let team of content.data.teams; let index = index" class="card">
 
     <div class="card-body">
 
@@ -30,15 +30,57 @@
 
     <div class="card-footer">
 
-      <div *ngIf="session" class="float-left mt-1">
-        <button type="button" class="transparent btn btn-outline-primary btn-sm"><i class="far fa-edit"></i></button>
+      <div *ngIf="session.identity && (team.name == session.identity.team || session.identity.role == 'ROLE_ADMIN')" class="float-left mt-1">
+        <button type="button" (click)="newContent = deepCopy(team, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
       </div>
 
       <!--<span class="footer-text">Universidad de León</span>-->
-      <a class="btn btn-outline-primary float-right margin_left-15" href={{team.buttons[0].link}}>{{team.buttons[0].name}}</a>
+      <a class="btn btn-outline-primary float-right margin_left-15" href={{team.link}}>{{content.data.buttons[0]}}</a>
     </div>
 
 
+  </div>
+
+  <!-- Modal edit content-->
+  <div *ngIf="session.identity" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <form ngNativeValidate #loginForm="ngForm" (ngSubmit)="saveContent()">
+
+          <div class="modal-header">
+            <h5 class="modal-title">{{content.data.edit_menu.edit_title}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+              {{content.data.edit_menu.error_text}}
+            </div>
+
+            <div class="form-group">
+              <label>{{content.data.edit_menu.description_title}}</label>
+              <textarea rows="3" #description="ngModel" name="description" [(ngModel)]="newContent.description" type="text" class="form-control" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>{{content.data.edit_menu.email_title}}</label>
+              <input #email="ngModel" name="email" [(ngModel)]="newContent.link" type="text" class="form-control" placeholder="www.exaple.com" required/>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{content.data.edit_menu.cancel_btn}}</button>
+            <input type="submit" class="btn btn-primary" value="{{content.data.edit_menu.save_btn}}"/>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
   </div>
 
 </div>

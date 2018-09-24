@@ -10,11 +10,11 @@ import { UserService } from '../../services/user.service';
 })
 export class AccesoComponent implements OnInit {
 
-  public content: Object;
+  public content: any;
   public language: String;
-  public user: Object;
+  public user: any;
 
-  public session: Object;
+  public session: any;
   public error: any;
 
   constructor(private _contentService: ContentService, private _userService: UserService) {

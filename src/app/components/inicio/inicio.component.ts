@@ -9,7 +9,7 @@ import { ContentService } from '../../services/content.service';
 })
 export class InicioComponent implements OnInit {
 
-  public content: Object;
+  public content: any;
   public language: String;
 
   constructor(private _contentService: ContentService) {
