@@ -69,6 +69,7 @@ export class CorpusComparablesComponent implements OnInit {
       this.newContent.author = this.session.identity.team;
     }
 
+    if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
     content.data.corpus[this.newContent.index] = this.newContent;
 
     this._contentService.editContent(this.session.token, content).subscribe(
