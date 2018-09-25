@@ -1,3 +1,33 @@
+/* Button bootstrap */
+.btn-primary{
+  background-color: #34759cbf;
+  border-color: #34759cbf;
+}
+
+.btn-primary:hover, .btn-primary:active:hover{
+  background-color: #34759c;
+}
+
+.btn-outline-primary{
+  color: #4584ab;
+  border-color: #4584ab;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:active:hover{
+  background-color: #34759cbf;
+  color: white;
+}
+
+.transparent{
+  border-color: rgba(0, 0, 0, 0);
+  font-size: 1rem;
+}
+/* Button bootstrap */
+
 .table td, .table th {
     vertical-align: middle;
+}
+
+.btn_80{
+  width: 80px;
 }

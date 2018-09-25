@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 
+import { ContentService } from '../../services/content.service';
 import { DatasheetService } from '../../services/datasheet.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-ficha-tecnica',
@@ -10,34 +12,46 @@ import { DatasheetService } from '../../services/datasheet.service';
 })
 export class FichaTecnicaComponent implements OnInit {
 
-  @Input() element: Object;
+  @Input() element: any;
+  @Input() type: String;
+
+  public content: any;
   public datasheet: any;
 
-  constructor(private _datasheetService: DatasheetService) { }
+  public session: any;
+
+  constructor(private _contentService: ContentService, private _datasheetService: DatasheetService, private _userService: UserService) {
+    this.session = {identity: '', token: ''};
+  }
 
   ngOnChanges(changes: SimpleChanges) {
 
     if(!changes["element"].isFirstChange()){
 
       this.datasheet = null;
-      this.loadDatasheet();
+      this.error = null;
+      this.loadContent();
 
     }
 
   }
 
   ngOnInit() {
-    this.loadDatasheet();
+
+    this.watchStorage();
+    this.loadContent();
+    this.session = this._userService.getSession();
+
   }
 
-  loadDatasheet(){
+  loadContent(){
 
-    this._datasheetService.getDatasheet(this.element['name'], 'corpus-comparables').subscribe(
+    this._contentService.getContentDatasheet(this.type).subscribe(
 
       response => {
 
-        this.datasheet = response.datasheet;
-        console.log(this.datasheet);
+        this.content = response.content;
+        this.loadDatasheet();
 
       },
 
@@ -49,6 +63,74 @@ export class FichaTecnicaComponent implements OnInit {
 
     );
 
+  }
+
+  loadDatasheet(){
+
+    this._datasheetService.getDatasheet(this.element['name'], 'corpus-comparables').subscribe(
+
+      response => {
+        this.datasheet = response.datasheet;
+      },
+
+      error =>{
+        console.log(error._body);
+        this.inicialiceDatasheet();
+      }
+
+    );
+
+  }
+
+  public error: number;
+
+  saveContent(){
+
+    let datasheet = JSON.parse(JSON.stringify(this.datasheet));
+
+    console.log(this.datasheet);
+    console.log(datasheet);
+
+    this._datasheetService.saveDatasheet(this.session.token, datasheet).subscribe(
+
+      response => {
+        this.datasheet = datasheet;
+        this.error = 0;
+        //$('#modifyContent').modal('toggle');
+      },
+
+      error =>{
+        this.error = 1;
+        if (error.status == 401) this._userService.removeSession();
+      }
+
+    );
+
+  }
+
+  deepCopy(element, index){
+
+    let copyELement = Object.assign({}, element);
+    copyELement.index = index;
+
+    return copyELement;
+
+  }
+
+  inicialiceDatasheet(){
+
+    this.datasheet = {name: this.element.name, type: this.type, data:[]};
+
+    for (let i = 0; i < this.content.data.length; i++) {
+        this.datasheet.data.push('');
+    }
+
+  }
+
+  watchStorage(){
+    this._userService.watchStorage().subscribe((data:string) => {
+      this.session = this._userService.getSession();
+    });
   }
 
 }

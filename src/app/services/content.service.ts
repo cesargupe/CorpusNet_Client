@@ -33,7 +33,7 @@ export class ContentService {
 
     localStorage.setItem('language', language);
     this.storage.next(this.loadLanguage());
-    
+
   }
 
   getContent(nameContent, language){
@@ -45,6 +45,18 @@ export class ContentService {
     let options = new RequestOptions({headers: headers});
 
     return this._http.get(this.url + 'content/' + nameContent + '/' + language, options).map(res => res.json());
+
+  }
+
+  getContentDatasheet(type){
+
+    let headers = new Headers({
+      'Content-Type':'application/json'
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.get(this.url + 'content_datasheet/' + type, options).map(res => res.json());
 
   }
 

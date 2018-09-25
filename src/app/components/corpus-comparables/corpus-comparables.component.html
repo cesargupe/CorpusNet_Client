@@ -29,7 +29,7 @@
   </div>
 
   <!-- ficha técnica -->
-  <app-ficha-tecnica *ngIf="selectedItem" [element]="selectedItem"></app-ficha-tecnica>
+  <app-ficha-tecnica *ngIf="selectedItem" [element]="selectedItem" [type]="'corpus-comparables'"></app-ficha-tecnica>
 
   <!-- Modal edit content-->
   <div *ngIf="session.identity" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
