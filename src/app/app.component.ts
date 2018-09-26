@@ -20,7 +20,9 @@ export class AppComponent implements OnInit{
   public router: Router;
   public language: String;
 
-  constructor(private _router: Router, private _contentService: ContentService) {
+  public session: any;
+
+  constructor(private _router: Router, private _contentService: ContentService, private _userService: UserService) {
     this.router = _router;
     this.language = _contentService.loadLanguage();
   }
@@ -29,6 +31,7 @@ export class AppComponent implements OnInit{
 
     this.watchStorage();
     this.loadContent('general');
+    this.session = this._userService.getSession();
 
   }
 
@@ -63,6 +66,10 @@ export class AppComponent implements OnInit{
     this._contentService.watchStorage().subscribe((data:string) => {
       this.language = data;
       this.loadContent('general');
+    });
+
+    this._userService.watchStorage().subscribe((data:string) => {
+      this.session = this._userService.getSession();
     });
   }
 

@@ -41,7 +41,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
 
-          <form ngNativeValidate #loginForm="ngForm" (ngSubmit)="saveContent()">
+          <form ngNativeValidate #modifyContentForm="ngForm" (ngSubmit)="saveContent()">
 
             <div class="modal-header">
               <h5 *ngIf="!newContent._id" class="modal-title">{{content.data.edit_menu.new_title}}</h5>

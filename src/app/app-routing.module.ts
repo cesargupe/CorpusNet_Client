@@ -9,6 +9,7 @@ import { HerramientasTecnicasComponent } from './components/herramientas-tecnica
 import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
 import { GruposComponent } from './components/grupos/grupos.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { Error404Component } from './components/error404/error404.component';
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   {path: 'aplicaciones', component: AplicacionesComponent},
   {path: 'grupos', component: GruposComponent},
   {path: 'noticias', component: NoticiasComponent},
+  {path: 'usuarios', component: UsuariosComponent},
   {path: '**', component: Error404Component}
 ];
 

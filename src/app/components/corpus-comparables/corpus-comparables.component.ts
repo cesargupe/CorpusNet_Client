@@ -40,7 +40,6 @@ export class CorpusComparablesComponent implements OnInit {
       response => {
 
         this.content = response.content;
-        console.log(this.content);
 
       },
 
@@ -86,8 +85,6 @@ export class CorpusComparablesComponent implements OnInit {
       }
 
     );
-
-    console.log(content);
 
   }
 

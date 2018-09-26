@@ -19,6 +19,7 @@ import { GruposComponent } from './components/grupos/grupos.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { FichaTecnicaComponent } from './components/ficha-tecnica/ficha-tecnica.component';
 import { AccesoComponent } from './components/acceso/acceso.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AccesoComponent } from './components/acceso/acceso.component';
     GruposComponent,
     NoticiasComponent,
     FichaTecnicaComponent,
-    AccesoComponent
+    AccesoComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

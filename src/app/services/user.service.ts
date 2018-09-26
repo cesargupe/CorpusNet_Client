@@ -32,6 +32,34 @@ export class UserService {
 
   }
 
+  getAllUsers(token){
+
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.get(this.url + 'users/', options).map(res => res.json());
+
+  }
+
+  saveUser(token, user){
+
+    let params = JSON.stringify(user);
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.post(this.url + 'new_user/', params, options).map(res => res.json());
+
+  }
+
+
   setSession(identity, token){
 
     localStorage.setItem('identity', JSON.stringify(identity));

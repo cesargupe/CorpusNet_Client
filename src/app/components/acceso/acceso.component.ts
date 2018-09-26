@@ -38,7 +38,7 @@ export class AccesoComponent implements OnInit {
         this.content = response.content;
       },
       error =>{
-        console.log(error);
+        console.log(error._body);
       }
     );
 

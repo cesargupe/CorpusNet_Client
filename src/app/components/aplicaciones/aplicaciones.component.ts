@@ -40,7 +40,6 @@ export class AplicacionesComponent implements OnInit {
       response => {
 
         this.content = response.content;
-        console.log(this.content);
 
       },
 

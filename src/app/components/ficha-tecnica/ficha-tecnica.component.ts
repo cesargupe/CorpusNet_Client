@@ -88,15 +88,11 @@ export class FichaTecnicaComponent implements OnInit {
 
     let datasheet = JSON.parse(JSON.stringify(this.datasheet));
 
-    console.log(this.datasheet);
-    console.log(datasheet);
-
     this._datasheetService.saveDatasheet(this.session.token, datasheet).subscribe(
 
       response => {
         this.datasheet = datasheet;
         this.error = 0;
-        //$('#modifyContent').modal('toggle');
       },
 
       error =>{

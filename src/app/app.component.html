@@ -54,6 +54,10 @@
       </div>
     </li>
 
+    <li *ngIf="session.identity && session.identity.role == 'ROLE_ADMIN'" class="nav-item">
+      <a class="nav-link" [routerLink]="['/usuarios']" [routerLinkActive]="['active']"><i class="fas fa-users"></i></a>
+    </li>
+
     <app-acceso></app-acceso>
 
   </ul>

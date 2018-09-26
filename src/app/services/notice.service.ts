@@ -42,8 +42,6 @@ export class NoticeService {
 
     let params = JSON.stringify(notice);
 
-    console.log(params);
-
     let headers = new Headers({
       'Content-Type':'application/json',
       'Authorization':token

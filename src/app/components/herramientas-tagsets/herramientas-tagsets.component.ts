@@ -37,16 +37,11 @@ export class HerramientasTagsetsComponent implements OnInit {
     this._contentService.getContent(contentName, this.language).subscribe(
 
       response => {
-
         this.content = response.content;
-        console.log(this.content);
-
       },
 
       error =>{
-
         console.log(error._body);
-
       }
 
     );
