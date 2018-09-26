@@ -81,7 +81,8 @@ export class UserService {
         sesion.token = localStorage.getItem('token');
     }
 
-    return sesion;
+    //return sesion;
+    return {identity: '', token: ''};
 
   }
 
