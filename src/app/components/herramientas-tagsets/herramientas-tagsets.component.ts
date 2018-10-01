@@ -14,6 +14,7 @@ export class HerramientasTagsetsComponent implements OnInit {
 
   public content: any;
   public language: String;
+  public selectedItem: any;
 
   public session: any;
   public newContent: any;
@@ -46,6 +47,10 @@ export class HerramientasTagsetsComponent implements OnInit {
 
     );
 
+  }
+
+  setElement(index){
+    this.selectedItem = this.content.data.tools[index];
   }
 
   public error: boolean;

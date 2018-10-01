@@ -46,6 +46,8 @@ export class FichaTecnicaComponent implements OnInit {
 
   loadContent(){
 
+    console.log(this.type)
+
     this._contentService.getContentDatasheet(this.type).subscribe(
 
       response => {
@@ -67,7 +69,7 @@ export class FichaTecnicaComponent implements OnInit {
 
   loadDatasheet(){
 
-    this._datasheetService.getDatasheet(this.element['name'], 'corpus-comparables').subscribe(
+    this._datasheetService.getDatasheet(this.element['name'], this.type).subscribe(
 
       response => {
         this.datasheet = response.datasheet;
@@ -84,11 +86,41 @@ export class FichaTecnicaComponent implements OnInit {
 
   public error: number;
 
-  saveContent(){
+  saveDatasheet(){
 
     let datasheet = JSON.parse(JSON.stringify(this.datasheet));
 
+    if (datasheet._id) {
+      this.updateDatasheet(datasheet);
+    }else{
+      this.addDatasheet(datasheet);
+    }
+
+  }
+
+  addDatasheet(datasheet){
+
     this._datasheetService.saveDatasheet(this.session.token, datasheet).subscribe(
+
+      response => {
+        this.datasheet = datasheet;
+        this.datasheet._id = response.datasheet._id;
+        console.log(this.datasheet)
+        this.error = 0;
+      },
+
+      error =>{
+        this.error = 1;
+        if (error.status == 401) this._userService.removeSession();
+      }
+
+    );
+
+  }
+
+  updateDatasheet(datasheet){
+
+    this._datasheetService.editDatasheet(this.session.token, datasheet).subscribe(
 
       response => {
         this.datasheet = datasheet;

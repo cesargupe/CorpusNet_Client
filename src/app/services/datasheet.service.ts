@@ -38,4 +38,18 @@ export class DatasheetService {
 
   }
 
+  editDatasheet(token, datasheet){
+
+    let params = JSON.stringify(datasheet);
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.put(this.url + 'datasheet/' + datasheet._id, params, options).map(res => res.json());
+
+  }
+
 }

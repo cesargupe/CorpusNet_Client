@@ -14,6 +14,7 @@ export class HerramientasTecnicasComponent implements OnInit {
 
   public content: any;
   public language: String;
+  public selectedItem: any;
 
   public session: any;
   public newContent: any;
@@ -46,6 +47,10 @@ export class HerramientasTecnicasComponent implements OnInit {
 
     );
 
+  }
+
+  setElement(index, type){
+    this.selectedItem = this.content.data.tools[type][index];
   }
 
   public error: boolean;

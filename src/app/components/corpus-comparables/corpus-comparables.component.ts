@@ -70,6 +70,7 @@ export class CorpusComparablesComponent implements OnInit {
 
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
     content.data.corpus[this.newContent.index] = this.newContent;
+
     delete content.data.corpus[this.newContent.index].index;
 
     this._contentService.editContent(this.session.token, content).subscribe(

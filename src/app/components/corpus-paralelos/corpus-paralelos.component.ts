@@ -14,6 +14,7 @@ export class CorpusParalelosComponent implements OnInit {
 
   public content: any;
   public language: String;
+  public selectedItem: any;
 
   public session: any;
   public newContent: any;
@@ -50,6 +51,10 @@ export class CorpusParalelosComponent implements OnInit {
 
     );
 
+  }
+
+  setElement(index){
+    this.selectedItem = this.content.data.corpus[index];
   }
 
   public error: boolean;

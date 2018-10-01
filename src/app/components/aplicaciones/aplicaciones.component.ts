@@ -14,6 +14,7 @@ export class AplicacionesComponent implements OnInit {
 
   public content: any;
   public language: String;
+  public selectedItem: any;
 
   public session: any;
   public newContent: any;
@@ -51,6 +52,11 @@ export class AplicacionesComponent implements OnInit {
 
     );
 
+  }
+
+  setElement(index){
+    this.selectedItem = this.content.data.applications[index];
+    console.log(this.selectedItem)
   }
 
   public error: boolean;
