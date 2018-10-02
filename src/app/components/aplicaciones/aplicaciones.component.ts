@@ -73,11 +73,13 @@ export class AplicacionesComponent implements OnInit {
 
     }
 
+    let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.applications[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'aplicaciones'}};
+
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
     content.data.applications[this.newContent.index] = this.newContent;
     delete content.data.applications[this.newContent.index].index;
 
-    this._contentService.editContent(this.session.token, content).subscribe(
+    this._contentService.editContent(this.session.token, content, action).subscribe(
 
       response => {
         this.content = content;
@@ -98,7 +100,9 @@ export class AplicacionesComponent implements OnInit {
     let content = JSON.parse(JSON.stringify(this.content));
     content.data.applications.splice(index, 1);
 
-    this._contentService.editContent(this.session.token, content).subscribe(
+    let action = {'title': 'delete', 'datasheet': {'oldName': this.content.data.applications[index].name, 'type': 'aplicaciones'}};
+
+    this._contentService.editContent(this.session.token, content, action).subscribe(
 
       response => {
         this.content = content;

@@ -60,9 +60,7 @@ export class ContentService {
 
   }
 
-  editContent(token, content){
-
-    let params = JSON.stringify(content);
+  editContent(token, content, action?:any){
 
     let headers = new Headers({
       'Content-Type':'application/json',
@@ -70,6 +68,21 @@ export class ContentService {
     });
 
     let options = new RequestOptions({headers: headers});
+
+    if (action) {
+
+      if (action.title == 'delete') {
+        this._http.delete(this.url + 'datasheet/' + action.datasheet.oldName + '/' + action.datasheet.type, options).subscribe(res => res.json());
+      }
+
+      if (action.title == 'edit') {
+        let params = {'name': action.datasheet.newName};
+        this._http.put(this.url + 'datasheet_name/' + action.datasheet.oldName + '/' + action.datasheet.type, params, options).subscribe(res => res.json());
+      }
+
+    }
+
+    let params = JSON.stringify(content);
 
     return this._http.put(this.url + 'content/' + content._id, params, options).map(res => res.json());
 

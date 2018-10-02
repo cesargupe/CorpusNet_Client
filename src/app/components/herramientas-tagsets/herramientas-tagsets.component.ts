@@ -67,11 +67,13 @@ export class HerramientasTagsetsComponent implements OnInit {
 
     }
 
+    let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.tools[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'herramientas-tagsets'}};
+
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
     content.data.tools[this.newContent.index] = this.newContent;
     delete content.data.tools[this.newContent.index].index;
 
-    this._contentService.editContent(this.session.token, content).subscribe(
+    this._contentService.editContent(this.session.token, content, action).subscribe(
 
       response => {
         this.content = content;
@@ -92,7 +94,9 @@ export class HerramientasTagsetsComponent implements OnInit {
     let content = JSON.parse(JSON.stringify(this.content));
     content.data.tools.splice(index, 1);
 
-    this._contentService.editContent(this.session.token, content).subscribe(
+    let action = {'title': 'delete', 'datasheet': {'oldName': this.content.data.tools[index].name, 'type': 'herramientas-tagsets'}};
+
+    this._contentService.editContent(this.session.token, content, action).subscribe(
 
       response => {
         this.content = content;

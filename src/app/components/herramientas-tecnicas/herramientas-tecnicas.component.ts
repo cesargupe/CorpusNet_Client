@@ -67,6 +67,8 @@ export class HerramientasTecnicasComponent implements OnInit {
 
     }
 
+    let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.tools[this.newContent.type][this.newContent.index].name, 'newName': this.newContent.name, 'type': 'herramientas-tecnicas'}};
+
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
 
     content.data.tools[this.newContent.type][this.newContent.index] = JSON.parse(JSON.stringify(this.newContent));
@@ -74,7 +76,7 @@ export class HerramientasTecnicasComponent implements OnInit {
     delete content.data.tools[this.newContent.type][this.newContent.index].index;
     delete content.data.tools[this.newContent.type][this.newContent.index].editing;
 
-    this._contentService.editContent(this.session.token, content).subscribe(
+    this._contentService.editContent(this.session.token, content, action).subscribe(
 
       response => {
         this.content = content;
@@ -95,7 +97,9 @@ export class HerramientasTecnicasComponent implements OnInit {
     let content = JSON.parse(JSON.stringify(this.content));
     content.data.tools[type].splice(index, 1);
 
-    this._contentService.editContent(this.session.token, content).subscribe(
+    let action = {'title': 'delete', 'datasheet': {'oldName': this.content.data.tools[type][index].name, 'type': 'herramientas-tecnicas'}};
+
+    this._contentService.editContent(this.session.token, content, action).subscribe(
 
       response => {
         this.content = content;
