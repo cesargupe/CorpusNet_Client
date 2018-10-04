@@ -105,7 +105,6 @@ export class FichaTecnicaComponent implements OnInit {
       response => {
         this.datasheet = datasheet;
         this.datasheet._id = response.datasheet._id;
-        console.log(this.datasheet)
         this.error = 0;
       },
 
