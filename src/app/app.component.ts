@@ -15,7 +15,7 @@ declare var $:any;
 
 export class AppComponent implements OnInit{
 
-  public content: Object;
+  public content: any;
   public error: Boolean;
   public router: Router;
   public language: String;

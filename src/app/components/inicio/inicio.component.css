@@ -12,12 +12,17 @@
 .big-logo{
   width: 40%;
   max-width: 450px;
+  min-width: 280px;
 }
 
 .margin-left_right_50{
   max-width: 1400px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.last_notice{
+  color: inherit;
 }
 
 .border_radius_blue{

@@ -24,6 +24,18 @@ export class NoticeService {
 
   }
 
+  getLastNotice(){
+
+    let headers = new Headers({
+      'Content-Type':'application/json'
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.get(this.url + 'last-notice/', options).map(res => res.json());
+
+  }
+
   saveNotice(token, notice){
 
     let params = JSON.stringify(notice);
