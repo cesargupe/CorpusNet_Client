@@ -1,6 +1,6 @@
 <li *ngIf="!session.identity" class="nav-item">
 
-  <a class="nav-link" href="#" id="loginForm" role="button" data-toggle="dropdown">
+  <a class="nav-link float-left" href="#" id="loginForm" role="button" data-toggle="dropdown">
     <i class="fas fa-sign-in-alt"></i>
   </a>
 
@@ -28,7 +28,7 @@
 
 <li *ngIf="session.identity" class="nav-item">
 
-  <a class="nav-link btn" role="button" (click)="logOut()">
+  <a class="nav-link btn float-left" role="button" (click)="logOut()">
     <i class="fas fa-sign-out-alt"></i>
   </a>
 

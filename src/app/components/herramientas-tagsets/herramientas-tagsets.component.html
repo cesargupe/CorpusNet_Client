@@ -52,8 +52,8 @@
         <form ngNativeValidate #modifyContentForm="ngForm" (ngSubmit)="saveContent()">
 
           <div class="modal-header">
-            <h5 *ngIf="!newContent._id" class="modal-title">{{content.data.edit_menu.new_title}}</h5>
-            <h5 *ngIf="newContent._id" class="modal-title">{{content.data.edit_menu.edit_title}}</h5>
+            <h5 *ngIf="!newContent.updated" class="modal-title">{{content.data.edit_menu.new_title}}</h5>
+            <h5 *ngIf="newContent.updated" class="modal-title">{{content.data.edit_menu.edit_title}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

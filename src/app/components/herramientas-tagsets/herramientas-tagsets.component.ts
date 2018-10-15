@@ -71,6 +71,8 @@ export class HerramientasTagsetsComponent implements OnInit {
 
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
     content.data.tools[this.newContent.index] = this.newContent;
+
+    delete content.data.tools[this.newContent.index].updated;
     delete content.data.tools[this.newContent.index].index;
 
     this._contentService.editContent(this.session.token, content, action).subscribe(
@@ -114,6 +116,7 @@ export class HerramientasTagsetsComponent implements OnInit {
 
     let copyELement = Object.assign({}, element);
     copyELement.index = index;
+    copyELement.updated = true;
 
     return copyELement;
 

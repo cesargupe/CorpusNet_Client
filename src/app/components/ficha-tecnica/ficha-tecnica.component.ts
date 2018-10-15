@@ -41,6 +41,7 @@ export class FichaTecnicaComponent implements OnInit {
     this.watchStorage();
     this.loadContent();
     this.session = this._userService.getSession();
+    console.log(this.element)
 
   }
 

@@ -13,7 +13,7 @@
       <div *ngIf="content && datasheet" class="modal-body">
 
         <table class="table table-bordered table-hover">
-          <tbody *ngIf="session.identity else no_editing">
+          <tbody *ngIf="session.identity && (element.author == session.identity.team || session.identity.role == 'ROLE_ADMIN') else no_editing">
 
             <tr *ngFor="let row of content.data; let i = index">
               <th class="card-title" scope="row">{{row}}</th>

@@ -72,9 +72,10 @@ export class HerramientasTecnicasComponent implements OnInit {
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
 
     content.data.tools[this.newContent.type][this.newContent.index] = JSON.parse(JSON.stringify(this.newContent));
+
     delete content.data.tools[this.newContent.type][this.newContent.index].type;
     delete content.data.tools[this.newContent.type][this.newContent.index].index;
-    delete content.data.tools[this.newContent.type][this.newContent.index].editing;
+    delete content.data.tools[this.newContent.type][this.newContent.index].updated;
 
     this._contentService.editContent(this.session.token, content, action).subscribe(
 
@@ -118,7 +119,7 @@ export class HerramientasTecnicasComponent implements OnInit {
     let copyELement = Object.assign({}, element);
     copyELement.index = index;
     copyELement.type = type;
-    copyELement.editing = true;
+    copyELement.updated = true;
 
     return copyELement;
 
