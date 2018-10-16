@@ -30,6 +30,11 @@
   margin-left: auto;
 }
 
+.add{
+  background-color: white;
+  width: 200px;
+}
+
 .general-title{
   font-weight: 400;
   margin-bottom: 20px;
@@ -37,10 +42,15 @@
   color: #343a40;
 }
 
-.add{
-  margin-top: 10px;
-  margin-bottom: -10px;
-  width: 200px;
+.corpus{
+  margin-bottom: 20px;
+}
+
+.card{
+  background-color: rgba(0,0,0,.01);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .center_menu{
@@ -49,20 +59,43 @@
   margin-right: auto;
 }
 
-.card-text{
-  height: 250px;
-  overflow: auto;
+.edit_menu{
+  margin-left: 30px;
+  margin-bottom: -30px;
+}
+
+.card-title{
+  --color: #5b8fec;
+  color: #6a8bc7;
+}
+
+h4.card-title{
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+p.card-title{
+  font-size: 1.5rem;
+  margin-left: 30px;
+  --margin-bottom: 10px;
+}
+
+.acronym{
+  font-size: 1rem;
+  color: #949aa0c4;
+}
+
+.text-grey{
+  color: #6c757db8;
+  font-size: 1.15rem;
+  margin-left: 30px;
+}
+
+.close{
+  font-size: 1.8rem;
+  line-height: 0.8;
 }
 
 .margin_left-15{
   margin-left: 15px;
-}
-
-.card-grey{
-  background-color: rgba(0,0,0,.01);
-  margin-top: 2rem;
-}
-
-.card_header-blue_grey{
-  background-color: rgba(191, 212, 225, 0.43);
 }

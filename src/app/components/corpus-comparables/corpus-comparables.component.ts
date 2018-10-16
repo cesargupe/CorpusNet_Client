@@ -64,8 +64,11 @@ export class CorpusComparablesComponent implements OnInit {
     let content = JSON.parse(JSON.stringify(this.content));
 
     if (!this.newContent.author) {
+
       content.data.corpus.unshift({});
       this.newContent.author = this.session.identity.team;
+      this.newContent.acronym = this.session.identity.acronym;
+      
     }
 
     let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.corpus[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'corpus-comparables'}};
