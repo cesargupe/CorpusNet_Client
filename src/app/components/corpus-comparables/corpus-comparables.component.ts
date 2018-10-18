@@ -40,6 +40,7 @@ export class CorpusComparablesComponent implements OnInit {
       response => {
 
         this.content = response.content;
+        this.sortContent(this.content.data.corpus);
 
       },
 
@@ -68,7 +69,7 @@ export class CorpusComparablesComponent implements OnInit {
       content.data.corpus.unshift({});
       this.newContent.author = this.session.identity.team;
       this.newContent.acronym = this.session.identity.acronym;
-      
+
     }
 
     let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.corpus[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'corpus-comparables'}};
@@ -135,6 +136,23 @@ export class CorpusComparablesComponent implements OnInit {
     this._userService.watchStorage().subscribe((data:string) => {
       this.session = this._userService.getSession();
     });
+  }
+
+  sortContent(elements){
+
+    elements.sort(function(element1, element2){
+
+      // Por orden alfabético del grupo
+      if(element1.author < element2.author) return -1;
+      if(element1.author > element2.author) return 1;
+
+      // Si coincide el grupo por orden alfabético del nombre
+      if(element1.name < element2.name) return -1;
+      if(element1.name > element2.name) return 1;
+
+      return 0;
+    });
+
   }
 
 }

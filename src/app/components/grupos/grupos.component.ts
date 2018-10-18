@@ -39,6 +39,7 @@ export class GruposComponent implements OnInit {
       response => {
 
         this.content = response.content;
+        this.sortContent(this.content.data.teams);
 
       },
 
@@ -97,6 +98,19 @@ export class GruposComponent implements OnInit {
     this._userService.watchStorage().subscribe((data:string) => {
       this.session = this._userService.getSession();
     });
+  }
+
+  sortContent(elements){
+
+    elements.sort(function(element1, element2){
+
+      // Por orden alfabético del grupo
+      if(element1.name < element2.name) return -1;
+      if(element1.name > element2.name) return 1;
+
+      return 0;
+    });
+
   }
 
 }
