@@ -71,11 +71,11 @@ export class ContentService {
 
     if (action) {
 
-      if (action.title == 'delete') {
+      if (action.title == 'delete' && action.oldName) {
         this._http.delete(this.url + 'datasheet/' + action.datasheet.oldName + '/' + action.datasheet.type, options).subscribe(res => res.json());
       }
 
-      if (action.title == 'edit') {
+      if (action.title == 'edit' && action.oldName) {
         let params = {'name': action.datasheet.newName};
         this._http.put(this.url + 'datasheet_name/' + action.datasheet.oldName + '/' + action.datasheet.type, params, options).subscribe(res => res.json());
       }
