@@ -74,7 +74,7 @@ export class AplicacionesComponent implements OnInit {
 
     }
 
-    let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.applications[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'aplicaciones'}};
+    let action = {'title': 'edit', 'datasheet': {'oldName': content.data.applications[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'aplicaciones'}};
 
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
     content.data.applications[this.newContent.index] = this.newContent;

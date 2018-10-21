@@ -70,7 +70,7 @@ export class HerramientasTecnicasComponent implements OnInit {
 
     }
 
-    let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.tools[this.newContent.type][this.newContent.index].name, 'newName': this.newContent.name, 'type': 'herramientas-tecnicas'}};
+    let action = {'title': 'edit', 'datasheet': {'oldName': content.data.tools[this.newContent.type][this.newContent.index].name, 'newName': this.newContent.name, 'type': 'herramientas-tecnicas'}};
 
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
 

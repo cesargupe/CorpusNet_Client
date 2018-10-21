@@ -72,7 +72,7 @@ export class CorpusParalelosComponent implements OnInit {
 
     }
 
-    let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.corpus[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'corpus-paralelos'}};
+    let action = {'title': 'edit', 'datasheet': {'oldName': content.data.corpus[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'corpus-paralelos'}};
 
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
     content.data.corpus[this.newContent.index] = this.newContent;
