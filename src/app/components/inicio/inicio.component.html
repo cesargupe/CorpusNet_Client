@@ -12,22 +12,17 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div *ngFor="let panel of content.data.panels" class="col-md-6">
       <div class="card border_radius_blue">
         <div class="card-body">
-          <h3 class="card-title text-center title-blue_grey">{{content.data.panels[0].title}}</h3>
-        <br><p class="card-text text-justify"[innerHTML]="content.data.panels[0].text"></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card border_radius_blue">
-          <div class="card-body">
-            <h3 class="card-title text-center title-blue_grey">{{content.data.panels[1].title}}</h3>
-          <br><p class="card-text text-justify"[innerHTML]="content.data.panels[1].text"></p>
-          </div>
+          <h3 class="card-title text-center title-blue_grey">{{panel.title}}</h3>
+          <span *ngFor="let paragraph of panel.text;" class="card-text text-justify">{{paragraph}}</span>
+          <ol>
+            <li *ngFor="let point of panel.points;">{{point}}</li>
+          </ol>
         </div>
       </div>
     </div>
+  </div>
 
 </div>

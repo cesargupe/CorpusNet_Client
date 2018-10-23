@@ -7,6 +7,8 @@
   --color :#6d8a9c!important;
   font-weight: 400;
   color: #6a8bc7;
+  text-shadow: 0.1em 0.1em 0.2em #94bad05e;
+  margin-bottom: 20px;
 }
 
 .big-logo{
@@ -29,4 +31,13 @@
     border-radius: 15px;
     border: 1px solid rgba(97, 153, 185, 0.24);
     margin-bottom: 20px;
+}
+
+ol li{
+  margin-top: 9px;
+}
+
+.card-text{
+  display: block;
+  margin-top: 7px;
 }
