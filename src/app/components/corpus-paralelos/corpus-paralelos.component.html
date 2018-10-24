@@ -2,21 +2,6 @@
 
   <!--<h1 class="text-center general-title">{{content.data.title}}</h1>-->
 
-
-  <div id="instructions" class="card text-center">
-
-    <div class="card-body">
-      <button (click)="closePanel()" type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <h4 class="card-title">{{content.data.instructions.title}}</h4>
-      <p class="card-text text-justify" [innerHTML]="content.data.instructions.content"></p>
-      </div>
-
-  </div>
-
-    <br>
-
     <div *ngIf="session.identity" class="center_menu">
       <button (click)="newContent = {'index': 0}" type="button" data-toggle="modal" data-target="#modifyContent" class="btn btn-outline-primary btn-sm add">{{content.data.edit_menu.new_btn}} <i class="fas fa-plus"></i></button>
     </div>

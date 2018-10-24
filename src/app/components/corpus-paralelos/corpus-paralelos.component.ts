@@ -35,7 +35,7 @@ export class CorpusParalelosComponent implements OnInit {
 
   loadContent(contentName){
 
-    this._contentService.getContent(contentName, 'default').subscribe(
+    this._contentService.getContent(contentName, 'es').subscribe(
 
       response => {
 
@@ -125,10 +125,6 @@ export class CorpusParalelosComponent implements OnInit {
 
     return copyELement;
 
-  }
-
-  closePanel(){
-    document.getElementById('instructions').classList.add("d-none");
   }
 
   watchStorage(){
