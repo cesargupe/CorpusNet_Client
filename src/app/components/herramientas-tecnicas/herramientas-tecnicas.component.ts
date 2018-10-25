@@ -52,10 +52,6 @@ export class HerramientasTecnicasComponent implements OnInit {
 
   }
 
-  setElement(index, type){
-    this.selectedItem = this.content.data.tools[type][index];
-  }
-
   public error: boolean;
 
   saveContent(){

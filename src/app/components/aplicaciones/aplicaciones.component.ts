@@ -55,10 +55,6 @@ export class AplicacionesComponent implements OnInit {
 
   }
 
-  setElement(index){
-    this.selectedItem = this.content.data.applications[index];
-  }
-
   public error: boolean;
 
   saveContent(){

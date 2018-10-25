@@ -55,10 +55,6 @@ export class BasesDatosComponent implements OnInit {
 
   }
 
-  setElement(index){
-    this.selectedItem = this.content.data.databases[index];
-  }
-
   public error: boolean;
 
   saveContent(){

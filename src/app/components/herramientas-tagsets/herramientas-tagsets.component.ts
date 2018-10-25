@@ -50,10 +50,6 @@ export class HerramientasTagsetsComponent implements OnInit {
 
   }
 
-  setElement(index){
-    this.selectedItem = this.content.data.tools[index];
-  }
-
   public error: boolean;
 
   saveContent(){

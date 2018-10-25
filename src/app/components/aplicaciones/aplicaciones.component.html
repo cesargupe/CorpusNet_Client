@@ -35,14 +35,11 @@
         <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
       </div>
 
-      <a class="btn btn-primary float-right margin_left-15" href={{application.link}}>{{content.data.buttons[0]}}</a>
-      <a data-toggle="modal" href="" (click)="setElement(index)" data-target="#ficha-tecnica" class="btn btn-outline-primary float-right">{{content.data.buttons[1]}}</a>
+      <a class="btn btn-primary float-right margin_left-15" href={{application.link}} target="_blank">{{content.data.buttons[0]}}</a>
+      <a *ngIf="application.info" class="btn btn-outline-primary float-right" href={{application.info}} target="_blank">{{content.data.buttons[1]}}</a>
     </div>
 
   </div>
-
-  <!-- ficha técnica -->
-  <app-ficha-tecnica *ngIf="selectedItem" [element]="selectedItem" [type]="'aplicaciones'"></app-ficha-tecnica>
 
   <!-- Modal edit content-->
   <div *ngIf="session.identity" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
