@@ -6,11 +6,11 @@ import { UserService } from '../../services/user.service';
 declare var $:any;
 
 @Component({
-  selector: 'app-aplicaciones',
-  templateUrl: './aplicaciones.component.html',
-  styleUrls: ['./aplicaciones.component.css']
+  selector: 'app-bases-datos',
+  templateUrl: './bases-datos.component.html',
+  styleUrls: ['./bases-datos.component.css']
 })
-export class AplicacionesComponent implements OnInit {
+export class BasesDatosComponent implements OnInit {
 
   public content: any;
   public language: String;
@@ -29,7 +29,7 @@ export class AplicacionesComponent implements OnInit {
   ngOnInit() {
 
     this.watchStorage();
-    this.loadContent('aplicaciones');
+    this.loadContent('bases-datos');
     this.session = this._userService.getSession();
 
   }
@@ -41,7 +41,7 @@ export class AplicacionesComponent implements OnInit {
       response => {
 
         this.content = response.content;
-        this.sortContent(this.content.data.applications);
+        this.sortContent(this.content.data.databases);
 
       },
 
@@ -56,7 +56,7 @@ export class AplicacionesComponent implements OnInit {
   }
 
   setElement(index){
-    this.selectedItem = this.content.data.applications[index];
+    this.selectedItem = this.content.data.databases[index];
   }
 
   public error: boolean;
@@ -67,19 +67,19 @@ export class AplicacionesComponent implements OnInit {
 
     if (!this.newContent.author) {
 
-      content.data.applications.unshift({});
+      content.data.databases.unshift({});
       this.newContent.author = this.session.identity.team;
       this.newContent.acronym = this.session.identity.acronym;
 
     }
 
-    let action = {'title': 'edit', 'datasheet': {'oldName': content.data.applications[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'aplicaciones'}};
+    let action = {'title': 'edit', 'datasheet': {'oldName': content.data.databases[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'aplicaciones'}};
 
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
-    content.data.applications[this.newContent.index] = this.newContent;
+    content.data.databases[this.newContent.index] = this.newContent;
 
-    delete content.data.applications[this.newContent.index].updated;
-    delete content.data.applications[this.newContent.index].index;
+    delete content.data.databases[this.newContent.index].updated;
+    delete content.data.databases[this.newContent.index].index;
 
     this._contentService.editContent(this.session.token, content, action).subscribe(
 
@@ -100,9 +100,9 @@ export class AplicacionesComponent implements OnInit {
   deleteContent(index){
 
     let content = JSON.parse(JSON.stringify(this.content));
-    content.data.applications.splice(index, 1);
+    content.data.databases.splice(index, 1);
 
-    let action = {'title': 'delete', 'datasheet': {'oldName': this.content.data.applications[index].name, 'type': 'aplicaciones'}};
+    let action = {'title': 'delete', 'datasheet': {'oldName': this.content.data.databases[index].name, 'type': 'aplicaciones'}};
 
     this._contentService.editContent(this.session.token, content, action).subscribe(
 
@@ -131,7 +131,7 @@ export class AplicacionesComponent implements OnInit {
   watchStorage(){
     this._contentService.watchStorage().subscribe((data:string) => {
       this.language = data;
-      this.loadContent('aplicaciones');
+      this.loadContent('bases-datos');
     });
 
     this._userService.watchStorage().subscribe((data:string) => {

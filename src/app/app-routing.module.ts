@@ -7,6 +7,7 @@ import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-p
 import { HerramientasTagsetsComponent } from './components/herramientas-tagsets/herramientas-tagsets.component';
 import { HerramientasTecnicasComponent } from './components/herramientas-tecnicas/herramientas-tecnicas.component';
 import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
+import { BasesDatosComponent } from './components/bases-datos/bases-datos.component';
 import { GruposComponent } from './components/grupos/grupos.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   {path: 'herramientas-tagsets', component: HerramientasTagsetsComponent},
   {path: 'herramientas-tecnicas', component: HerramientasTecnicasComponent},
   {path: 'aplicaciones', component: AplicacionesComponent},
+  {path: 'bases-datos', component: BasesDatosComponent},
   {path: 'grupos', component: GruposComponent},
   {path: 'noticias', component: NoticiasComponent},
   {path: 'usuarios', component: UsuariosComponent},

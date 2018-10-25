@@ -1,0 +1,99 @@
+/* Button bootstrap */
+.btn-primary{
+  background-color: #34759cbf;
+  border-color: #34759cbf;
+}
+
+.btn-primary:hover, .btn-primary:active:hover{
+  background-color: #34759c;
+}
+
+.btn-outline-primary{
+  color: #4584ab;
+  border-color: #4584ab;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:active:hover{
+  background-color: #34759cbf;
+  color: white;
+}
+
+.transparent{
+  border-color: rgba(0, 0, 0, 0);
+  font-size: 1rem;
+}
+/* Button bootstrap */
+
+.margin-left_right_50{
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.general-title{
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-size: 2.1rem;
+  color: #343a40;
+}
+
+.add{
+  margin-top: 10px;
+  margin-bottom: -10px;
+  width: 200px;
+}
+
+.center_menu{
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card{
+  background-color: rgba(0,0,0,.01);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.card-body{
+  max-height: 250px;
+  overflow: auto;
+}
+
+.card-title{
+  margin-top: 10px;
+  color: #6a8bc7;
+}
+
+.acronym{
+  font-size: 1rem;
+  color: #949aa0c4;
+}
+
+.text-grey{
+    color: #6c757db8;
+    font-size: 1.15rem;
+    margin-top: -10px;
+}
+
+.img-app{
+  width: 110px;
+  height: auto;
+  margin-top: 15px;
+}
+
+.card-footer{
+    background-color: rgba(191, 212, 225, 0.14);
+}
+
+.footer-text{
+  font-size: 1.3rem;
+color: #808080c4;
+margin-left: 5px;
+}
+
+.margin_left-15{
+  margin-left: 15px;
+}

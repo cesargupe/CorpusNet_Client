@@ -31,3 +31,9 @@
 .btn_80{
   width: 80px;
 }
+
+.white-space{
+  white-space: pre-wrap;
+  margin-left: 10px;
+  margin-right: 10px;
+}

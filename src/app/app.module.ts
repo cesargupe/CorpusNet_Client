@@ -20,6 +20,7 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
 import { FichaTecnicaComponent } from './components/ficha-tecnica/ficha-tecnica.component';
 import { AccesoComponent } from './components/acceso/acceso.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { BasesDatosComponent } from './components/bases-datos/bases-datos.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     NoticiasComponent,
     FichaTecnicaComponent,
     AccesoComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    BasesDatosComponent
   ],
   imports: [
     BrowserModule,

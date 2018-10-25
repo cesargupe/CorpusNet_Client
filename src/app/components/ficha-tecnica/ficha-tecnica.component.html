@@ -12,7 +12,7 @@
       </div>
       <div *ngIf="content && datasheet" class="modal-body">
 
-        <table class="table table-bordered table-hover">
+        <table *ngIf="datasheet.data.length > 1" class="table table-bordered table-hover">
           <tbody *ngIf="session.identity && (element.author == session.identity.team || session.identity.role == 'ROLE_ADMIN') else no_editing">
 
             <tr *ngFor="let row of content.data; let i = index">
@@ -22,6 +22,13 @@
 
           </tbody>
         </table>
+
+        <div *ngIf="datasheet.data.length == 1">
+          <div *ngIf="session.identity && (element.author == session.identity.team || session.identity.role == 'ROLE_ADMIN') else no_editingInfo">
+            <textarea style="text-align:justify;" rows="10" name="content[{{0}}]" [(ngModel)]="datasheet.data[0]" type="text" class="form-control"></textarea>
+          </div>
+        </div>
+
       </div>
 
       <div *ngIf="session.identity && error == 1" class="alert alert-danger text-center" role="alert">
@@ -50,5 +57,11 @@
     <td *ngIf="datasheet && datasheet.data && datasheet.data[i]" class="text-justify">{{datasheet.data[i]}}</td>
     <td *ngIf="!datasheet || !datasheet.data || !datasheet.data[i]" class="text-center"> — </td>
   </tr>
+
+</ng-template>
+
+<ng-template #no_editingInfo>
+
+  <p class="white-space text-justify" [innerHTML]="datasheet.data[0]"></p>
 
 </ng-template>

@@ -36,10 +36,13 @@
       <a class="nav-link" [routerLink]="['/aplicaciones']" [routerLinkActive]="['active']">{{content.data.top_menu[3].text}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/grupos']" [routerLinkActive]="['active']">{{content.data.top_menu[4].text}}</a>
+      <a class="nav-link" [routerLink]="['/bases-datos']" [routerLinkActive]="['active']">{{content.data.top_menu[4].text}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/noticias']" [routerLinkActive]="['active']">{{content.data.top_menu[5].text}}</a>
+      <a class="nav-link" [routerLink]="['/grupos']" [routerLinkActive]="['active']">{{content.data.top_menu[5].text}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/noticias']" [routerLinkActive]="['active']">{{content.data.top_menu[6].text}}</a>
     </li>
   </ul>
 
@@ -47,7 +50,7 @@
 
     <li class="nav-item">
       <a class="nav-link dropdown-toggle" href="#" id="languageSelect" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{content.data.top_menu[6].text}}
+        {{content.data.top_menu[7].text}}
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageSelect">
         <a *ngFor="let language_page of content.data.languages" [class.active]="language == language_page.code" class="dropdown-item pointer-cursor" (click)="changeLanguage(language_page.code)">{{language_page.name}}</a>
