@@ -35,7 +35,7 @@ export class CorpusComparablesComponent implements OnInit {
 
   loadContent(contentName){
 
-    this._contentService.getContent(contentName, 'es').subscribe(
+    this._contentService.getContent(contentName, this.language).subscribe(
 
       response => {
 

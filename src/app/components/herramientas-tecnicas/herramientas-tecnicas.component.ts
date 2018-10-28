@@ -41,7 +41,7 @@ export class HerramientasTecnicasComponent implements OnInit {
         this.content = response.content;
         this.sortContent(this.content.data.tools.tagger);
         this.sortContent(this.content.data.tools.browser);
-        this.sortContent(this.content.data.tools.aligner);
+        //this.sortContent(this.content.data.tools.aligner);
       },
 
       error =>{

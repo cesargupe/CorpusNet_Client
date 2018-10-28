@@ -35,12 +35,12 @@ export class CorpusParalelosComponent implements OnInit {
 
   loadContent(contentName){
 
-    this._contentService.getContent(contentName, 'es').subscribe(
+    this._contentService.getContent(contentName, this.language).subscribe(
 
       response => {
 
         this.content = response.content;
-        this.sortContent(this.content.data.corpus);
+        //this.sortContent(this.content.data.corpus);
 
       },
 

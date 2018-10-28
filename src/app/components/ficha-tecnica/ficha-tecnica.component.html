@@ -53,9 +53,9 @@
 <ng-template #no_editing>
 
   <tr *ngFor="let row of content.data; let i = index">
-    <th class="card-title" scope="row">{{row}}</th>
-    <td *ngIf="datasheet && datasheet.data && datasheet.data[i]" class="text-justify">{{datasheet.data[i]}}</td>
-    <td *ngIf="!datasheet || !datasheet.data || !datasheet.data[i]" class="text-center"> — </td>
+    <th *ngIf="content.data[i] != 'Direction' || content.type != 'corpus-comparables'" class="card-title" scope="row">{{row}}</th>
+    <td *ngIf="(datasheet && datasheet.data && datasheet.data[i]) && (content.data[i] != 'Direction' || content.type != 'corpus-comparables')" class="text-justify">{{datasheet.data[i]}}</td>
+    <td *ngIf="(!datasheet || !datasheet.data || !datasheet.data[i]) && (content.data[i] != 'Direction' || content.type != 'corpus-comparables')" class="text-center"> — </td>
   </tr>
 
 </ng-template>

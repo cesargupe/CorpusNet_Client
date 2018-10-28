@@ -41,7 +41,7 @@ export class BasesDatosComponent implements OnInit {
       response => {
 
         this.content = response.content;
-        this.sortContent(this.content.data.databases);
+        //this.sortContent(this.content.data.databases);
 
       },
 

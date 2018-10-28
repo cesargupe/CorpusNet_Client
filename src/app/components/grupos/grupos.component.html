@@ -22,17 +22,17 @@
 
       </div>
 
-      <div class="mt-4">
+      <!--<div class="mt-4">
         <p class="card-text text-justify" [innerHTML]="team.description"></p>
-      </div>
+      </div>-->
 
     </div>
 
     <div class="card-footer">
 
-      <div *ngIf="session.identity && (team.name == session.identity.team || session.identity.role == 'ROLE_ADMIN')" class="float-left mt-1">
+      <!--<div *ngIf="session.identity && (team.name == session.identity.team || session.identity.role == 'ROLE_ADMIN')" class="float-left mt-1">
         <button type="button" (click)="newContent = deepCopy(team, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
-      </div>
+      </div>-->
 
       <!--<span class="footer-text">Universidad de León</span>-->
       <a class="btn btn-outline-primary float-right margin_left-15" href={{team.link}}>{{content.data.buttons[0]}}</a>
