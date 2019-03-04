@@ -21,6 +21,7 @@
         <div class="col-md-9">
           <h4 class="card-title">{{application.name}}</h4>
           <h5 class="card-subtitle mb-2 text-grey">{{application.author}} <span class="acronym">- {{application.acronym}}</span></h5>
+          <p *ngIf="application.license" class="card-subtitle text-grey text-truncate small_text mt-1"><a href="{{content.data.licenses[application.license].link}}" target="_blank"><img src="/assets/licenses/{{application.license}}.png" width="70" height="auto"></a> {{content.data.licenses[application.license].title}}</p>
           <p class="card-text text-justify" [innerHTML]="application.description"></p>
         </div>
 

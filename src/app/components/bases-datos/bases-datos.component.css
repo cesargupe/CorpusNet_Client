@@ -78,6 +78,10 @@
     margin-top: -10px;
 }
 
+.text-grey.small_text{
+  font-size: .9rem;
+}
+
 .img-app{
   width: 125px;
   height: auto;

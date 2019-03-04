@@ -32,6 +32,19 @@ export class UserService {
 
   }
 
+  checkUser(token) {
+
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.get(this.url + 'check_token/', options).map(res => res.json());
+
+  }
+
   getAllUsers(token){
 
     let headers = new Headers({
@@ -82,8 +95,7 @@ export class UserService {
     }
 
     return sesion;
-    //return {identity: '', token: ''};
-
+    
   }
 
   removeSession(){

@@ -21,6 +21,7 @@
         <div class="col-md-9">
           <h4 class="card-title">{{database.name}}</h4>
           <h5 class="card-subtitle mb-2 text-grey">{{database.author}} <span class="acronym">- {{database.acronym}}</span></h5>
+          <p *ngIf="database.license" class="card-subtitle text-grey text-truncate small_text mt-1"><a href="{{content.data.licenses[database.license].link}}" target="_blank"><img src="/assets/licenses/{{database.license}}.png" width="70" height="auto"></a> {{content.data.licenses[database.license].title}}</p>
           <p class="card-text text-justify" [innerHTML]="database.description"></p>
         </div>
 

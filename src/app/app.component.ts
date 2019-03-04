@@ -25,13 +25,36 @@ export class AppComponent implements OnInit{
   constructor(private _router: Router, private _contentService: ContentService, private _userService: UserService) {
     this.router = _router;
     this.language = _contentService.loadLanguage();
+    this.session = {identity: '', token: ''};
   }
 
   ngOnInit(){
 
     this.watchStorage();
     this.loadContent('general');
-    this.session = this._userService.getSession();
+    this.checkToken();
+
+  }
+
+  checkToken(){
+
+    let session = this._userService.getSession();
+
+    if (session.identity && session.token) {
+
+      this._userService.checkUser(session.token).subscribe(
+
+        response => {
+          this.session = session;
+        },
+
+        error => {
+          this._userService.removeSession();
+        }
+
+      );
+
+    }
 
   }
 

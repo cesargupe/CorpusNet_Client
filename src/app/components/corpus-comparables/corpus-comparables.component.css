@@ -91,6 +91,10 @@ p.card-title{
   margin-left: 30px;
 }
 
+.text-grey.small_text{
+  font-size: .9rem;
+}
+
 .close{
   font-size: 1.8rem;
   line-height: 0.8;
