@@ -12,6 +12,7 @@ export class UserService {
 
   constructor(private _http: Http) {
     this.url = 'http://localhost:3977/api/';
+    //this.url = 'http://corpusnet.unileon.es:3977/api/';
   }
 
   watchStorage(): Observable<any> {
@@ -95,7 +96,7 @@ export class UserService {
     }
 
     return sesion;
-    
+
   }
 
   removeSession(){

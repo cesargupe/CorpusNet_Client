@@ -19,9 +19,9 @@
         </div>
 
         <div class="col-md-9">
-          <h4 class="card-title">{{database.name}}</h4>
+          <h4 class="card-title d-inline-block" [innerHTML]="database.name"></h4>
+          <a *ngIf="database.license" href="{{content.data.licenses[database.license].link}}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img style="margin-top:-10px" src="/assets/licenses/{{database.license}}.png" width="85" height="auto"></a>
           <h5 class="card-subtitle mb-2 text-grey">{{database.author}} <span class="acronym">- {{database.acronym}}</span></h5>
-          <p *ngIf="database.license" class="card-subtitle text-grey text-truncate small_text mt-1"><a href="{{content.data.licenses[database.license].link}}" target="_blank"><img src="/assets/licenses/{{database.license}}.png" width="70" height="auto"></a> {{content.data.licenses[database.license].title}}</p>
           <p class="card-text text-justify" [innerHTML]="database.description"></p>
         </div>
 

@@ -10,9 +10,10 @@ export class DatasheetService {
 
   constructor(private _http: Http) {
     this.url = 'http://localhost:3977/api/';
+    //this.url = 'http://corpusnet.unileon.es:3977/api/';
   }
 
-  getDatasheet(name, type){
+  getDatasheet(name, type, language){
 
     let headers = new Headers({
       'Content-Type':'application/json'
@@ -20,7 +21,7 @@ export class DatasheetService {
 
     let options = new RequestOptions({headers: headers});
 
-    return this._http.get(this.url + 'datasheet/' + name + '/' + type, options).map(res => res.json());
+    return this._http.get(this.url + 'datasheet/' + name + '/' + type + '/' + language, options).map(res => res.json());
 
   }
 

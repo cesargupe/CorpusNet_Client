@@ -14,6 +14,7 @@ export class FichaTecnicaComponent implements OnInit {
 
   @Input() element: any;
   @Input() type: String;
+  @Input() language: String;
 
   public content: any;
   public datasheet: any;
@@ -26,7 +27,9 @@ export class FichaTecnicaComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
 
-    if(!changes["element"].isFirstChange()){
+    console.log(changes)
+
+    if(changes["element"]){
 
       this.datasheet = null;
       this.error = null;
@@ -67,7 +70,7 @@ export class FichaTecnicaComponent implements OnInit {
 
   loadDatasheet(){
 
-    this._datasheetService.getDatasheet(this.element['name'], this.type).subscribe(
+    this._datasheetService.getDatasheet(this.element['name'], this.type, this.language).subscribe(
 
       response => {
         this.datasheet = response.datasheet;

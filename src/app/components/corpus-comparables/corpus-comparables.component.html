@@ -10,9 +10,9 @@
 
     <div *ngFor="let corpus of content.data.corpus; let index = index" class="card corpus">
       <div class="card-body">
-        <p class="card-title align-middle">{{corpus.name}}</p>
+        <p class="card-title align-middle d-inline-block" [innerHTML]="corpus.name"></p>
+        <a *ngIf="corpus.license" href="{{content.data.licenses[corpus.license].link}}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img style="margin-top:-10px" src="/assets/licenses/{{corpus.license}}.png" width="85" height="auto"></a>
         <h5 class="card-subtitle text-grey">{{corpus.author}} <span class="acronym">- {{corpus.acronym}}</span></h5>
-      <p *ngIf="corpus.license" class="card-subtitle text-grey text-truncate small_text mt-1"><a href="{{content.data.licenses[corpus.license].link}}" target="_blank"><img src="/assets/licenses/{{corpus.license}}.png" width="70" height="auto"></a> {{content.data.licenses[corpus.license].title}}</p>
         <div *ngIf="session.identity && (corpus.author == session.identity.team || session.identity.role == 'ROLE_ADMIN')" class="edit_menu mt-3">
           <button type="button" (click)="newContent = deepCopy(corpus, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
           <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm mr-1"><i class="far fa-trash-alt"></i></button>
@@ -23,7 +23,7 @@
     </div>
 
     <!-- ficha técnica -->
-    <app-ficha-tecnica *ngIf="selectedItem" [element]="selectedItem" [type]="'corpus-comparables'"></app-ficha-tecnica>
+    <app-ficha-tecnica *ngIf="selectedItem" [element]="selectedItem" [type]="'corpus-comparables'" [language]="language"></app-ficha-tecnica>
 
     <!-- Modal edit content-->
     <div *ngIf="session.identity" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
