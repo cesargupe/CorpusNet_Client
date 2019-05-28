@@ -41,7 +41,7 @@ export class AplicacionesComponent implements OnInit {
       response => {
 
         this.content = response.content;
-        this.sortContent(this.content.data.applications);
+        //this.sortContent(this.content.data.applications);
 
       },
 

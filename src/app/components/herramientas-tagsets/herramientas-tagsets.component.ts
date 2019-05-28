@@ -39,7 +39,7 @@ export class HerramientasTagsetsComponent implements OnInit {
 
       response => {
         this.content = response.content;
-        this.sortContent(this.content.data.tools);
+        //this.sortContent(this.content.data.tools);
       },
 
       error =>{
