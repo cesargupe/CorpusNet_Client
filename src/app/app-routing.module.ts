@@ -12,6 +12,7 @@ import { GruposComponent } from './components/grupos/grupos.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { Error404Component } from './components/error404/error404.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const appRoutes: Routes = [
   {path: '', component: InicioComponent},
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   {path: 'grupos', component: GruposComponent},
   {path: 'noticias', component: NoticiasComponent},
   {path: 'usuarios', component: UsuariosComponent},
+  {path: 'not-found', component: NotFoundComponent},
   {path: '**', component: Error404Component}
 ];
 

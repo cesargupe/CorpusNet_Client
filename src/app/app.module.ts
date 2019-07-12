@@ -10,6 +10,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { Error500Component } from './components/error500/error500.component';
 import { Error404Component } from './components/error404/error404.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CorpusComparablesComponent } from './components/corpus-comparables/corpus-comparables.component';
 import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-paralelos.component';
 import { HerramientasTagsetsComponent } from './components/herramientas-tagsets/herramientas-tagsets.component';
@@ -28,6 +29,7 @@ import { BasesDatosComponent } from './components/bases-datos/bases-datos.compon
     InicioComponent,
     Error500Component,
     Error404Component,
+    NotFoundComponent,
     CorpusComparablesComponent,
     CorpusParalelosComponent,
     HerramientasTagsetsComponent,
